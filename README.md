@@ -1,7 +1,13 @@
+<div align="center">
+
+![Kartika Cyber Defense Thumbnail](THUMBNAIL_KARYA.png)
+
 # KARTIKA CYBER DEFENSE & TRIAGE SENTINEL PLATFORM
 **Platform Pertahanan Siber Mandiri, Intersepsi Sub-Milidetik & Forensic Triage Otomatis Workstation Militer**  
 *Submisi Resmi: Kartika Cyber Hackathon 2026 — Pusat Siber TNI Angkatan Darat (PUSSIBERAD)*  
 *Kategori: 02 - PENANGKALAN (Blue Team / Incident Response / Infrastructure Shielding)*
+
+</div>
 
 ---
 
