@@ -1,0 +1,20 @@
+{
+  "name": "kartika-cyber-defense-portal",
+  "version": "1.0.0",
+  "description": "Portal Pertahanan Siber PUSSIBERAD - Kartika Cyber Hackathon 2026",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "cybersecurity",
+    "pussiberad",
+    "tni-ad",
+    "canary-shield",
+    "triage-sentinel"
+  ],
+  "author": "Kartika Cyber Defense Team",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0"
+  }
+}

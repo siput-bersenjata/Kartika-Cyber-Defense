@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KARTIKA TRIAGE SENTINEL // PUSSIBERAD TNI AD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-canvas: #070a0e;
+      --color-panel: #0d131a;
+      --color-panel-border: #1a2533;
+      --color-ink: #e3e8ee;
+      --color-muted: #798696;
+      --color-tni-green: #2ecc71;
+      --color-tni-red: #e74c3c;
+      --color-tni-yellow: #f1c40f;
+      --font-sans: 'IBM Plex Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --font-display: 'Space Grotesk', sans-serif;
+    }
+  </style>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .panel { border: 1px solid #ccc !important; background: none !important; }
+    }
+    .grid-bg {
+      background-size: 32px 32px;
+      background-image: linear-gradient(to right, rgba(30, 42, 56, 0.25) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(30, 42, 56, 0.25) 1px, transparent 1px);
+    }
+    .radar-sweep {
+      position: relative;
+      overflow: hidden;
+    }
+    .radar-sweep::after {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: conic-gradient(from 0deg, rgba(46, 204, 113, 0.15) 0deg, transparent 60deg, transparent 360deg);
+      animation: rotate-radar 4s linear infinite;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    @keyframes rotate-radar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #070a0e; }
+    ::-webkit-scrollbar-thumb { background: #1a2533; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2a3b4f; }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans min-h-screen grid-bg antialiased selection:bg-tni-green/30">
+
+  <!-- Header Komando Militer -->
+  <header class="border-b border-panel-border bg-panel/90 backdrop-blur sticky top-0 z-50 px-4 sm:px-6 py-3.5">
+    <div class="w-full max-w-[1540px] mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded border border-tni-green/40 bg-tni-green/10 flex items-center justify-center text-tni-green font-mono font-bold text-lg">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-bold tracking-wider text-base">KARTIKA TRIAGE SENTINEL</span>
+            <span class="text-[10px] font-mono uppercase bg-tni-green/20 text-tni-green border border-tni-green/40 px-1.5 py-0.5 rounded">v1.0 AIR-GAPPED</span>
+          </div>
+          <p class="text-xs text-muted font-mono">PUSSIBERAD // PUSAT SIBER TNI ANGKATAN DARAT</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 no-print">
+        <a href="https://github.com/siput-bersenjata" target="_blank" class="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 hover:text-emerald-300 hover:border-emerald-400 transition" title="Pengembang & Arsitek Pertahanan Siber">
+          <i class="fa-brands fa-github text-sm"></i>
+          <span>siput-bersenjata (Sovian)</span>
+        </a>
+        <span id="ai-engine-badge" class="font-mono text-xs px-2.5 py-1 rounded border border-panel-border bg-panel text-muted">
+          <i class="fa-solid fa-microchip mr-1 text-tni-green"></i> AI Engine: Checking...
+        </span>
+        <button id="btn-real-payload" onclick="toggleRealPayload()" class="text-xs font-mono px-3 py-2 border border-red-500/40 text-red-400 hover:bg-red-500/10 rounded transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-radiation"></i> Uji Serangan APT Nyata (C2, LOLBAS & Persist)
+        </button>
+        <button id="btn-scan" onclick="runTriage()" class="text-xs font-mono font-bold px-4 py-2 bg-tni-green hover:bg-emerald-400 text-black rounded transition flex items-center gap-1.5 shadow-lg shadow-tni-green/20">
+          <i class="fa-solid fa-crosshairs"></i> JALANKAN TRIAGE SEKARANG
+        </button>
+        <button onclick="window.print()" class="text-xs font-mono px-3 py-2 border border-panel-border hover:bg-panel rounded transition text-muted hover:text-ink">
+          <i class="fa-solid fa-print"></i> Cetak Laporan
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Konten Utama -->
+  <main class="w-full max-w-[1540px] mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- Watermark Khusus Mode Cetak / PDF Forensik -->
+    <div class="hidden print-only mb-4 p-3 border-b-2 border-black font-mono">
+      <div class="flex justify-between items-center text-sm font-bold">
+        <span>KARTIKA TRIAGE SENTINEL // BUKTI FORENSIK DIGITAL RESMI</span>
+        <span>ARSITEK: SOVIAN (@siput-bersenjata)</span>
+      </div>
+      <div class="flex justify-between items-center text-[10px] text-gray-600 mt-1">
+        <span>PUSAT SIBER TNI ANGKATAN DARAT (PUSSIBERAD) - HACKATHON 2026</span>
+        <span>VERIFIKASI GITHUB: https://github.com/siput-bersenjata</span>
+      </div>
+    </div>
+
+    <!-- Status Alert Bar -->
+    <div id="status-card" class="p-5 rounded-lg border border-tni-green/30 bg-tni-green/5 flex flex-wrap items-center justify-between gap-4 transition-all duration-300">
+      <div class="flex items-center gap-4">
+        <div id="radar-container" class="w-14 h-14 rounded-full border-2 border-tni-green/50 bg-panel flex items-center justify-center radar-sweep shrink-0">
+          <i id="status-icon" class="fa-solid fa-shield-check text-2xl text-tni-green"></i>
+        </div>
+        <div>
+          <p class="text-xs font-mono text-muted uppercase tracking-wider">STATUS ANCAMAN SIBER WORKSTATION</p>
+          <h2 id="status-text" class="text-2xl font-display font-bold text-tni-green">MEMINDAI SISTEM...</h2>
+          <p id="status-subtitle" class="text-xs text-muted font-mono mt-0.5">Memeriksa proses volatil, koneksi jaringan, dan titik persistensi autorun.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-right">
+        <div>
+          <span class="text-xs text-muted block">SKOR RISIKO</span>
+          <span id="threat-score" class="text-3xl font-display font-bold text-tni-green">--</span>
+          <span class="text-xs text-muted">/100</span>
+        </div>
+        <div class="border-l border-panel-border pl-6 text-left">
+          <span class="text-xs text-muted block">HOST / UNIT</span>
+          <span id="host-name" class="font-bold text-sm block">--</span>
+          <span id="os-name" class="text-xs text-muted">--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Telemetry Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 no-print">
+      <div class="p-4 rounded-lg bg-panel border border-panel-border">
+        <div class="flex justify-between items-center text-muted mb-2">
+          <span class="text-xs font-mono uppercase">Total Proses</span>
+          <i class="fa-solid fa-microchip text-xs"></i>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="stat-procs" class="text-2xl font-mono font-bold">--</span>
+          <span id="stat-procs-badge" class="text-xs text-tni-green font-mono">0 Anomali</span>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-lg bg-panel border border-panel-border">
+        <div class="flex justify-between items-center text-muted mb-2">
+          <span class="text-xs font-mono uppercase">Koneksi Aktif</span>
+          <i class="fa-solid fa-network-wired text-xs"></i>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="stat-conns" class="text-2xl font-mono font-bold">--</span>
+          <span id="stat-conns-badge" class="text-xs text-tni-green font-mono">0 Mencurigakan</span>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-lg bg-panel border border-panel-border">
+        <div class="flex justify-between items-center text-muted mb-2">
+          <span class="text-xs font-mono uppercase">Persistensi / Startup</span>
+          <i class="fa-solid fa-key text-xs"></i>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="stat-persist" class="text-2xl font-mono font-bold">--</span>
+          <span id="stat-persist-badge" class="text-xs text-tni-green font-mono">0 Flagged</span>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-lg bg-panel border border-panel-border">
+        <div class="flex justify-between items-center text-muted mb-2">
+          <span class="text-xs font-mono uppercase">Cookie &amp; Sesi (T1539)</span>
+          <i class="fa-solid fa-cookie-bite text-xs text-amber-400"></i>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="stat-cookies" class="text-2xl font-mono font-bold">--</span>
+          <span id="stat-cookies-badge" class="text-xs text-tni-green font-mono">0 Terdeteksi</span>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-lg bg-panel border border-panel-border">
+        <div class="flex justify-between items-center text-muted mb-2">
+          <span class="text-xs font-mono uppercase">Beban Memori RAM</span>
+          <i class="fa-solid fa-memory text-xs"></i>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="stat-ram" class="text-2xl font-mono font-bold">--</span>
+          <span id="stat-ram-total" class="text-xs text-muted font-mono">GB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Navigasi Hasil Triage -->
+    <div class="border-b border-panel-border flex flex-wrap gap-4 sm:gap-6 font-mono text-sm no-print">
+      <button onclick="switchTab('ai')" id="tab-btn-ai" class="pb-3 border-b-2 border-tni-green text-tni-green font-bold flex items-center gap-2">
+        <i class="fa-solid fa-file-shield"></i> Laporan Analisis Taktis AI
+      </button>
+      <button onclick="switchTab('processes')" id="tab-btn-processes" class="pb-3 border-b-2 border-transparent text-muted hover:text-ink flex items-center gap-2">
+        <i class="fa-solid fa-list-check"></i> Audit Proses &amp; Binary
+      </button>
+      <button onclick="switchTab('network')" id="tab-btn-network" class="pb-3 border-b-2 border-transparent text-muted hover:text-ink flex items-center gap-2">
+        <i class="fa-solid fa-satellite-dish"></i> Koneksi Jaringan &amp; Port C2
+      </button>
+      <button onclick="switchTab('persistence')" id="tab-btn-persistence" class="pb-3 border-b-2 border-transparent text-muted hover:text-ink flex items-center gap-2">
+        <i class="fa-solid fa-clock-rotate-left"></i> Titik Persistensi Autorun
+      </button>
+      <button onclick="switchTab('cookies')" id="tab-btn-cookies" class="pb-3 border-b-2 border-transparent text-muted hover:text-ink flex items-center gap-2">
+        <i class="fa-solid fa-cookie-bite"></i> Deteksi Cookie Sesi (T1539)
+      </button>
+    </div>
+
+    <!-- TAB 1: AI REPORT -->
+    <section id="tab-ai" class="space-y-4">
+      <!-- Banner Khusus Bukti Penangkal Cookie Theft -->
+      <div id="cookie-theft-alert-box" class="hidden p-4 rounded-lg bg-red-950/40 border-2 border-red-500/60 text-red-200 flex items-start gap-3 shadow-lg">
+        <i class="fa-solid fa-cookie-bite text-red-400 text-xl mt-0.5 shrink-0 animate-bounce"></i>
+        <div class="space-y-1 w-full">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h4 class="font-bold text-red-300 font-display text-sm tracking-wide flex items-center gap-2">
+              <span>[BUKTI SISTEM PENANGKAL BEKERJA] DETEKSI PENCURIAN COOKIE SESI BROWSER (MITRE T1539)</span>
+            </h4>
+            <span class="text-[10px] bg-red-500/30 text-red-300 border border-red-500 px-2 py-0.5 rounded font-mono font-bold">KRITIS (SIAGA 1)</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed" id="cookie-theft-desc">
+            Sistem Triage Sentinel berhasil mencegat artefak ekstraksi credential / session cookies kedinasan militer. Trojan mencoba mengekstrak token SSO Kemhan, TNI Webmail, dan Portal E-Office Kodam untuk membypass MFA!
+          </p>
+          <div class="flex flex-wrap items-center gap-2 pt-1 text-[11px] font-mono text-cyan-300" id="cookie-domains-tags"></div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-lg bg-panel border border-panel-border relative">
+        <div class="flex justify-between items-center mb-4 border-b border-panel-border pb-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-mono uppercase text-muted">LAPORAN INTELIJEN SIBER // DOKUMEN RESMI PUSSIBERAD</span>
+          </div>
+          <span id="ai-engine-used" class="text-xs font-mono text-tni-green bg-tni-green/10 border border-tni-green/30 px-2 py-0.5 rounded">
+            AI Sovereign Engine
+          </span>
+        </div>
+
+        <div id="ai-report-body" class="prose prose-invert max-w-none font-mono text-sm leading-relaxed whitespace-pre-wrap text-ink/90">
+          Memuat analisa... Silakan klik "JALANKAN TRIAGE SEKARANG".
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: PROCESSES -->
+    <section id="tab-processes" class="hidden space-y-4">
+      <div class="p-5 rounded-lg bg-panel border border-panel-border">
+        <h3 class="text-sm font-mono font-bold uppercase mb-3 text-tni-green">Daftar Proses Terdeteksi (Sample Volatil)</h3>
+        <div class="overflow-x-auto rounded-lg border border-panel-border/80 bg-black/40">
+          <table class="w-full text-left font-mono text-xs border-collapse">
+            <thead class="bg-slate-900/90 border-b border-panel-border/80 text-muted uppercase text-[11px] font-semibold">
+              <tr>
+                <th class="py-3 px-3.5 whitespace-nowrap min-w-[90px]"><i class="fa-solid fa-hashtag mr-1 text-slate-400"></i> PID</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[200px]"><i class="fa-solid fa-cube mr-1 text-cyan-400"></i> Nama Proses</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[140px]"><i class="fa-solid fa-user-shield mr-1 text-slate-400"></i> User</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[90px]"><i class="fa-solid fa-microchip mr-1 text-amber-400"></i> CPU%</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[90px]"><i class="fa-solid fa-memory mr-1 text-emerald-400"></i> RAM%</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[140px]"><i class="fa-solid fa-shield-halved mr-1 text-tni-green"></i> Status</th>
+                <th class="py-3 px-3.5 whitespace-nowrap min-w-[320px]"><i class="fa-solid fa-folder-open mr-1 text-slate-400"></i> Path Eksekusi</th>
+              </tr>
+            </thead>
+            <tbody id="process-table-body" class="divide-y divide-panel-border/50">
+              <tr><td colspan="7" class="py-6 text-center text-muted">Belum ada data.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: NETWORK -->
+    <section id="tab-network" class="hidden space-y-4">
+      <div class="p-5 rounded-lg bg-panel border border-panel-border">
+        <h3 class="text-sm font-mono font-bold uppercase mb-3 text-tni-green">Koneksi Jaringan Aktif &amp; Telemetri Socket</h3>
+        <div class="overflow-x-auto rounded-lg border border-panel-border/80 bg-black/40">
+          <table class="w-full text-left font-mono text-xs border-collapse">
+            <thead class="bg-slate-900/90 border-b border-panel-border/80 text-muted uppercase text-[11px] font-semibold">
+              <tr>
+                <th class="py-3 px-3.5 whitespace-nowrap min-w-[90px]"><i class="fa-solid fa-ethernet mr-1 text-cyan-400"></i> Proto</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[220px]"><i class="fa-solid fa-network-wired mr-1 text-slate-400"></i> Alamat Lokal</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[220px]"><i class="fa-solid fa-globe mr-1 text-amber-400"></i> Alamat Remote</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[140px]"><i class="fa-solid fa-signal mr-1 text-slate-400"></i> Status</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[90px]"><i class="fa-solid fa-hashtag mr-1 text-slate-400"></i> PID</th>
+                <th class="py-3 px-3.5 whitespace-nowrap min-w-[190px]"><i class="fa-solid fa-triangle-exclamation mr-1 text-tni-red"></i> Klasifikasi</th>
+              </tr>
+            </thead>
+            <tbody id="network-table-body" class="divide-y divide-panel-border/50">
+              <tr><td colspan="6" class="py-6 text-center text-muted">Belum ada data.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: PERSISTENCE -->
+    <section id="tab-persistence" class="hidden space-y-4">
+      <div class="p-5 rounded-lg bg-panel border border-panel-border">
+        <h3 class="text-sm font-mono font-bold uppercase mb-3 text-tni-green">Titik Persistensi Startup &amp; Registry Run Keys</h3>
+        <div class="overflow-x-auto rounded-lg border border-panel-border/80 bg-black/40">
+          <table class="w-full text-left font-mono text-xs border-collapse">
+            <thead class="bg-slate-900/90 border-b border-panel-border/80 text-muted uppercase text-[11px] font-semibold">
+              <tr>
+                <th class="py-3 px-3.5 whitespace-nowrap min-w-[220px]"><i class="fa-solid fa-key mr-1 text-cyan-400"></i> Key Name</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[160px]"><i class="fa-solid fa-shield mr-1 text-slate-400"></i> Scope</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[340px]"><i class="fa-solid fa-terminal mr-1 text-slate-400"></i> Perintah / Executable</th>
+                <th class="py-3 px-3.5 whitespace-nowrap min-w-[180px]"><i class="fa-solid fa-shield-halved mr-1 text-tni-green"></i> Status</th>
+              </tr>
+            </thead>
+            <tbody id="persistence-table-body" class="divide-y divide-panel-border/50">
+              <tr><td colspan="4" class="py-6 text-center text-muted">Belum ada data.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: COOKIE & CREDENTIAL THEFT -->
+    <section id="tab-cookies" class="hidden space-y-4">
+      <div class="p-5 rounded-lg bg-panel border border-panel-border space-y-4">
+        <div class="flex justify-between items-center border-b border-panel-border pb-3">
+          <div class="flex items-center gap-2.5">
+            <i class="fa-solid fa-cookie-bite text-amber-400 text-base"></i>
+            <h3 class="text-sm font-mono font-bold uppercase text-white">Artefak Forensik Pencurian Kredensial &amp; Cookie Sesi (MITRE ATT&amp;CK T1539)</h3>
+          </div>
+          <span id="cookie-status-badge" class="text-xs font-mono px-3 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">Normal / Belum Ada Pencurian</span>
+        </div>
+
+        <div class="p-3.5 bg-amber-950/20 border border-amber-500/30 rounded-lg text-xs text-slate-300 space-y-1">
+          <p class="font-bold text-amber-300 font-mono uppercase"><i class="fa-solid fa-shield-halved mr-1 text-emerald-400"></i> BUKTI PENANGKAL (PROOF OF DEFENSE VERIFICATION):</p>
+          <p class="text-[11px] leading-relaxed">
+            Tabel di bawah memindai berkas ekstraksi kredensial browser dan session cookies militer yang diekstrak oleh trojan/infostealer. Ketika terdeteksi, Triage Sentinel membongkar path file loot, menghitung total cookie yang dibocorkan, dan memicu rekomendasi darurat <strong>Revoke Session SSO Kemhan/TNI</strong> agar akun komando tidak dapat dibajak penyerang.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto rounded-lg border border-panel-border/80 bg-black/40">
+          <table class="w-full text-left font-mono text-xs border-collapse">
+            <thead class="bg-slate-900/90 border-b border-panel-border/80 text-muted uppercase text-[11px] font-semibold">
+              <tr>
+                <th class="py-3 px-3.5 whitespace-nowrap min-w-[220px]"><i class="fa-solid fa-file-lines mr-1 text-cyan-400"></i> Artefak / File Bukti</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[280px]"><i class="fa-solid fa-folder mr-1 text-slate-400"></i> Lokasi Path Volatil</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[120px]"><i class="fa-solid fa-hashtag mr-1 text-amber-400"></i> Total Cookie</th>
+                <th class="py-3 px-3 whitespace-nowrap min-w-[260px]"><i class="fa-solid fa-globe mr-1 text-cyan-400"></i> Domain Sasaran</th>
+                <th class="py-3 px-3.5 whitespace-nowrap min-w-[170px]"><i class="fa-solid fa-triangle-exclamation mr-1 text-tni-red"></i> Klasifikasi Taktis</th>
+              </tr>
+            </thead>
+            <tbody id="cookies-table-body" class="divide-y divide-panel-border/50">
+              <tr><td colspan="5" class="py-6 text-center text-muted">Belum ada artefak pencurian cookie terdeteksi.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Watermark Hak Cipta & Authorship -->
+    <footer class="mt-12 mb-6 pt-4 border-t border-panel-border/80 text-xs font-mono text-muted flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-tni-green animate-pulse"></span>
+        <span>KARTIKA CYBER HACKATHON 2026 // PUSSIBERAD TNI AD</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span>Rancang Bangun Pertahanan:</span>
+        <a href="https://github.com/siput-bersenjata" target="_blank" class="text-ink hover:text-tni-green flex items-center gap-1 font-semibold underline decoration-tni-green/50">
+          <i class="fa-brands fa-github text-sm"></i> siput-bersenjata (Sovian)
+        </a>
+        <span class="text-[10px] px-1.5 py-0.5 rounded border border-panel-border bg-panel text-gray-400 font-mono">AUTH-SIGN-2026</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    let isPayloadActive = false;
+
+    async function checkAIEngine() {
+      try {
+        const res = await fetch('/api/health');
+        const data = await res.json();
+        const badge = document.getElementById('ai-engine-badge');
+        if (data.ollama_available) {
+          badge.innerHTML = `<i class="fa-solid fa-microchip mr-1 text-tni-green"></i> Local Ollama: Siap (${data.model})`;
+          badge.className = "font-mono text-xs px-2.5 py-1 rounded border border-tni-green/40 bg-tni-green/10 text-tni-green";
+        } else {
+          badge.innerHTML = `<i class="fa-solid fa-shield-halved mr-1 text-yellow-400"></i> Air-Gapped Heuristic Engine (100% Real OS)`;
+          badge.className = "font-mono text-xs px-2.5 py-1 rounded border border-yellow-500/40 bg-yellow-500/10 text-yellow-400";
+        }
+      } catch(e) {
+        console.error(e);
+      }
+    }
+
+    async function toggleRealPayload() {
+      const btn = document.getElementById('btn-real-payload');
+      btn.disabled = true;
+
+      if (!isPayloadActive) {
+        btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Menjalankan Payload Nyata...`;
+        try {
+          const res = await fetch('/api/spawn-real-payload', { method: 'POST' });
+          const data = await res.json();
+          isPayloadActive = true;
+          btn.className = "text-xs font-mono px-3 py-2 bg-red-600 text-white rounded transition flex items-center gap-1.5 animate-pulse font-bold";
+          btn.innerHTML = `<i class="fa-solid fa-stop"></i> Hentikan Serangan Nyata`;
+          alert("⚡ PROSES SERANGAN NYATA BERHASIL DIJALANKAN:\n\n" + data.message + "\n\nSekarang klik 'JALANKAN TRIAGE SEKARANG' untuk memindai sistem Anda!");
+        } catch (e) {
+          alert("Gagal menjalankan payload: " + e);
+        }
+      } else {
+        btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Mematikan & Membersihkan...`;
+        try {
+          const res = await fetch('/api/kill-real-payload', { method: 'POST' });
+          const data = await res.json();
+          isPayloadActive = false;
+          btn.className = "text-xs font-mono px-3 py-2 border border-red-500/40 text-red-400 hover:bg-red-500/10 rounded transition flex items-center gap-1.5";
+          btn.innerHTML = `<i class="fa-solid fa-radiation"></i> Uji Serangan Nyata (Port 4444)`;
+          alert("✓ BERSIH: " + data.message);
+        } catch (e) {
+          alert("Gagal mematikan payload: " + e);
+        }
+      }
+
+      btn.disabled = false;
+      runTriage();
+    }
+
+    async function runTriage() {
+      const btn = document.getElementById('btn-scan');
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> MEMINDAI OS NYATA...`;
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/triage');
+        const data = await res.json();
+        renderTriage(data);
+      } catch (e) {
+        alert("Gagal memanggil API Triage: " + e);
+      } finally {
+        btn.innerHTML = `<i class="fa-solid fa-crosshairs"></i> JALANKAN TRIAGE SEKARANG`;
+        btn.disabled = false;
+      }
+    }
+
+    function renderTriage(data) {
+      const triage = data.triage;
+      const ai = data.ai_analysis;
+
+      // Status Bar
+      const statusCard = document.getElementById('status-card');
+      const statusText = document.getElementById('status-text');
+      const threatScore = document.getElementById('threat-score');
+      const statusIcon = document.getElementById('status-icon');
+      const hostName = document.getElementById('host-name');
+      const osName = document.getElementById('os-name');
+
+      threatScore.innerText = triage.threat_score;
+      statusText.innerText = triage.status_level;
+      hostName.innerText = triage.summary.hostname;
+      osName.innerText = triage.summary.os;
+
+      if (triage.threat_score >= 70) {
+        statusCard.className = "p-5 rounded-lg border border-red-500/50 bg-red-950/20 flex flex-wrap items-center justify-between gap-4 transition-all duration-300";
+        statusText.className = "text-2xl font-display font-bold text-red-500";
+        threatScore.className = "text-3xl font-display font-bold text-red-500";
+        statusIcon.className = "fa-solid fa-radiation text-2xl text-red-500";
+      } else if (triage.threat_score >= 35) {
+        statusCard.className = "p-5 rounded-lg border border-yellow-500/50 bg-yellow-950/20 flex flex-wrap items-center justify-between gap-4 transition-all duration-300";
+        statusText.className = "text-2xl font-display font-bold text-yellow-400";
+        threatScore.className = "text-3xl font-display font-bold text-yellow-400";
+        statusIcon.className = "fa-solid fa-triangle-exclamation text-2xl text-yellow-400";
+      } else {
+        statusCard.className = "p-5 rounded-lg border border-tni-green/30 bg-tni-green/5 flex flex-wrap items-center justify-between gap-4 transition-all duration-300";
+        statusText.className = "text-2xl font-display font-bold text-tni-green";
+        threatScore.className = "text-3xl font-display font-bold text-tni-green";
+        statusIcon.className = "fa-solid fa-shield-check text-2xl text-tni-green";
+      }
+
+      // Quick telemetry
+      document.getElementById('stat-procs').innerText = triage.processes.total_processes;
+      const procBadge = document.getElementById('stat-procs-badge');
+      procBadge.innerText = `${triage.processes.suspicious_count} Anomali`;
+      procBadge.className = triage.processes.suspicious_count > 0 ? "text-xs text-red-400 font-mono font-bold" : "text-xs text-tni-green font-mono";
+
+      document.getElementById('stat-conns').innerText = triage.network.total_connections;
+      const connBadge = document.getElementById('stat-conns-badge');
+      connBadge.innerText = `${triage.network.suspicious_count} Mencurigakan`;
+      connBadge.className = triage.network.suspicious_count > 0 ? "text-xs text-red-400 font-mono font-bold" : "text-xs text-tni-green font-mono";
+
+      document.getElementById('stat-persist').innerText = triage.persistence.total_persistence;
+      const persistBadge = document.getElementById('stat-persist-badge');
+      persistBadge.innerText = `${triage.persistence.suspicious_count} Flagged`;
+      persistBadge.className = triage.persistence.suspicious_count > 0 ? "text-xs text-red-400 font-mono font-bold" : "text-xs text-tni-green font-mono";
+
+      document.getElementById('stat-ram').innerText = `${triage.summary.ram_used_gb}/${triage.summary.ram_total_gb}`;
+
+      // Cookie / Credential Theft Stats
+      const credTheft = triage.credential_theft || { detected: false, suspicious_count: 0, artifacts: [] };
+      const cookieStat = document.getElementById('stat-cookies');
+      const cookieBadge = document.getElementById('stat-cookies-badge');
+      if (cookieStat) cookieStat.innerText = credTheft.suspicious_count;
+      if (cookieBadge) {
+        cookieBadge.innerText = `${credTheft.suspicious_count} Terdeteksi`;
+        cookieBadge.className = credTheft.detected ? "text-xs text-red-400 font-mono font-bold animate-pulse" : "text-xs text-tni-green font-mono";
+      }
+
+      // AI Text
+      document.getElementById('ai-report-body').innerText = ai.analysis_text;
+      document.getElementById('ai-engine-used').innerText = ai.engine;
+
+      // Banner Khusus Bukti Penangkal Cookie Theft
+      const alertBox = document.getElementById('cookie-theft-alert-box');
+      const domainsTags = document.getElementById('cookie-domains-tags');
+      if (alertBox) {
+        if (credTheft.detected) {
+          alertBox.classList.remove('hidden');
+          const allDomains = [];
+          credTheft.artifacts.forEach(a => {
+            (a.target_domains || []).forEach(d => { if (!allDomains.includes(d)) allDomains.push(d); });
+          });
+          if (domainsTags) {
+            domainsTags.innerHTML = allDomains.map(d => `<span class="px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300"><i class="fa-solid fa-globe text-[10px] mr-1"></i> ${d}</span>`).join(' ') || '<span class="text-slate-400">Target: Domain Kedinasan Militer</span>';
+          }
+        } else {
+          alertBox.classList.add('hidden');
+        }
+      }
+
+      // Render Processes Table
+      const procTbody = document.getElementById('process-table-body');
+      procTbody.innerHTML = '';
+      triage.processes.processes_sample.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.className = p.is_suspicious 
+          ? "bg-red-500/10 text-red-300 font-bold hover:bg-red-500/20 transition" 
+          : "hover:bg-panel-border/30 transition text-slate-200";
+        
+        const statusBadge = p.is_suspicious
+          ? `<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-bold bg-red-500/20 text-red-400 border border-red-500/40 whitespace-nowrap"><i class="fa-solid fa-triangle-exclamation"></i> ANOMALI</span>`
+          : `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 whitespace-nowrap"><i class="fa-solid fa-check"></i> NORMAL</span>`;
+
+        tr.innerHTML = `
+          <td class="py-2.5 px-3.5 whitespace-nowrap font-mono text-cyan-400 font-bold">${p.pid}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap font-bold text-white">${p.name}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap text-slate-400">${p.user}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap text-amber-400 font-mono">${p.cpu}%</td>
+          <td class="py-2.5 px-3 whitespace-nowrap text-emerald-400 font-mono">${p.memory}%</td>
+          <td class="py-2.5 px-3 whitespace-nowrap">${statusBadge}</td>
+          <td class="py-2.5 px-3.5 whitespace-nowrap text-slate-400 text-[11px] truncate max-w-[360px]" title="${p.path}">${p.path}</td>
+        `;
+        procTbody.appendChild(tr);
+      });
+
+      // Render Network Table
+      const netTbody = document.getElementById('network-table-body');
+      netTbody.innerHTML = '';
+      triage.network.connections_sample.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.className = c.is_suspicious 
+          ? "bg-red-500/10 text-red-300 font-bold hover:bg-red-500/20 transition" 
+          : "hover:bg-panel-border/30 transition text-slate-200";
+
+        const badge = c.is_suspicious
+          ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-bold bg-red-500/20 text-red-300 border border-red-500/40 whitespace-nowrap animate-pulse"><i class="fa-solid fa-radiation text-red-400"></i> PORT C2 BAHAYA</span>`
+          : `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap"><i class="fa-solid fa-shield-check text-emerald-400"></i> Aman</span>`;
+
+        tr.innerHTML = `
+          <td class="py-2.5 px-3.5 whitespace-nowrap text-cyan-400 font-bold uppercase">${c.type}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap text-slate-300 font-mono">${c.local_address}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap font-mono ${c.is_suspicious ? 'text-red-400 font-bold' : 'text-slate-300'}">${c.remote_address}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap text-slate-400">${c.status}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap font-mono text-cyan-400">${c.pid || '-'}</td>
+          <td class="py-2.5 px-3.5 whitespace-nowrap">${badge}</td>
+        `;
+        netTbody.appendChild(tr);
+      });
+
+      // Render Persistence Table
+      const persistTbody = document.getElementById('persistence-table-body');
+      persistTbody.innerHTML = '';
+      triage.persistence.items.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = item.is_suspicious 
+          ? "bg-red-500/10 text-red-300 font-bold hover:bg-red-500/20 transition" 
+          : "hover:bg-panel-border/30 transition text-slate-200";
+
+        const badge = item.is_suspicious
+          ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-bold bg-red-500/20 text-red-300 border border-red-500/40 whitespace-nowrap"><i class="fa-solid fa-skull text-red-400"></i> MALICIOUS RUN KEY</span>`
+          : `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap">Valid</span>`;
+
+        tr.innerHTML = `
+          <td class="py-2.5 px-3.5 whitespace-nowrap font-bold text-white">${item.key_name}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap text-slate-400">${item.scope}</td>
+          <td class="py-2.5 px-3 whitespace-nowrap font-mono text-xs text-slate-300 truncate max-w-[360px]" title="${item.command}">${item.command}</td>
+          <td class="py-2.5 px-3.5 whitespace-nowrap">${badge}</td>
+        `;
+        persistTbody.appendChild(tr);
+      });
+
+      // Render Cookies & Credential Theft Table
+      const cookieTbody = document.getElementById('cookies-table-body');
+      const cookieStatusBadge = document.getElementById('cookie-status-badge');
+      if (cookieStatusBadge) {
+        if (credTheft.detected) {
+          cookieStatusBadge.className = "text-xs font-mono px-3 py-1 rounded bg-red-500/20 text-red-300 border border-red-500/40 font-bold animate-pulse";
+          cookieStatusBadge.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1 text-red-400"></i> Terdeteksi ${credTheft.suspicious_count} Artefak Pencurian!`;
+        } else {
+          cookieStatusBadge.className = "text-xs font-mono px-3 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold";
+          cookieStatusBadge.innerHTML = `<i class="fa-solid fa-check mr-1 text-emerald-400"></i> Normal / Belum Ada Pencurian`;
+        }
+      }
+
+      if (cookieTbody) {
+        cookieTbody.innerHTML = '';
+        if (credTheft.artifacts.length === 0) {
+          cookieTbody.innerHTML = `<tr><td colspan="5" class="py-6 text-center text-muted"><i class="fa-solid fa-circle-check text-emerald-400 mr-1.5"></i> Tidak ditemukan artefak dump kredensial atau cookie browser di disk. Sistem aman.</td></tr>`;
+        } else {
+          credTheft.artifacts.forEach(a => {
+            const tr = document.createElement('tr');
+            tr.className = "bg-red-500/10 text-red-300 font-bold hover:bg-red-500/20 transition";
+            const domList = (a.target_domains || []).map(d => `<span class="inline-block px-1.5 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 mr-1 mb-1 text-[10px]">${d}</span>`).join('') || '-';
+            tr.innerHTML = `
+              <td class="py-2.5 px-3.5 whitespace-nowrap text-white font-bold flex items-center gap-1.5">
+                <i class="fa-solid fa-cookie-bite text-amber-400"></i> ${a.name}
+              </td>
+              <td class="py-2.5 px-3 whitespace-nowrap font-mono text-[11px] text-slate-300 truncate max-w-[320px]" title="${a.path}">${a.path}</td>
+              <td class="py-2.5 px-3 whitespace-nowrap text-amber-300 font-bold">${a.cookie_count} Cookies</td>
+              <td class="py-2.5 px-3 whitespace-nowrap">${domList}</td>
+              <td class="py-2.5 px-3.5 whitespace-nowrap">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-bold bg-red-500/20 text-red-300 border border-red-500/40 whitespace-nowrap animate-pulse">
+                  <i class="fa-solid fa-shield-virus text-red-400"></i> ${a.mitre_technique || 'T1539 KRITIS'}
+                </span>
+              </td>
+            `;
+            cookieTbody.appendChild(tr);
+          });
+        }
+      }
+    }
+
+    function switchTab(tab) {
+      ['ai', 'processes', 'network', 'persistence', 'cookies'].forEach(t => {
+        document.getElementById(`tab-${t}`).classList.add('hidden');
+        document.getElementById(`tab-btn-${t}`).className = "pb-3 border-b-2 border-transparent text-muted hover:text-ink flex items-center gap-2";
+      });
+      document.getElementById(`tab-${tab}`).classList.remove('hidden');
+      document.getElementById(`tab-btn-${tab}`).className = "pb-3 border-b-2 border-tni-green text-tni-green font-bold flex items-center gap-2";
+    }
+
+    // Init on load
+    window.onload = () => {
+      checkAIEngine();
+      runTriage();
+    };
+  </script>
+</body>
+</html>

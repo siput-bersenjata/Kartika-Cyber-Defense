@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KARTIKA CANARY-SHIELD &amp; MILITARY CRYPTO-VAULT // PUSSIBERAD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.2.1/dist/index.global.js"></script>
+    <style>
+        :root {
+            --bg-canvas: #060913;
+            --bg-panel: rgba(14, 22, 37, 0.78);
+            --bg-card: rgba(18, 28, 48, 0.65);
+            --border-line: rgba(255, 255, 255, 0.08);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+        }
+        body {
+            background-color: var(--bg-canvas);
+            color: #e2e8f0;
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: -0.01em;
+        }
+        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #070c16; }
+        ::-webkit-scrollbar-thumb { background: #1e2c3d; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        
+        /* Modern Tactical Grid Canvas */
+        .tech-grid {
+            background-color: #060913;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.07) 0%, transparent 45%),
+                radial-gradient(circle at 100% 100%, rgba(6, 182, 212, 0.05) 0%, transparent 40%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+        }
+        
+        .panel {
+            background: var(--bg-panel);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border-line);
+            border-radius: 14px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
+        }
+        
+        .card-inner {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+        .card-inner:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            background: rgba(22, 34, 58, 0.7);
+        }
+
+        .pulse-shield {
+            animation: pulse-ring 2.5s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        
+        .pulse-alert {
+            animation: pulse-alert-ring 1.5s infinite;
+        }
+        @keyframes pulse-alert-ring {
+            0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.5); }
+            60% { box-shadow: 0 0 0 12px rgba(244, 63, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col p-4 md:p-6 lg:p-7 select-none tech-grid antialiased">
+    <div class="w-full max-w-[1540px] mx-auto space-y-6 flex-1 flex flex-col">
+
+    <!-- Top Command Header -->
+    <header class="panel px-5 py-4 flex flex-wrap items-center justify-between gap-4 border-l-4 border-l-emerald-500 shadow-xl">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl shadow-inner shrink-0">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="px-2.5 py-0.5 text-[10px] font-mono tracking-wider font-bold bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 rounded-full">
+                        KATEGORI 02: DEFENSIVE SHIELD
+                    </span>
+                    <span class="text-xs text-slate-400 font-mono tracking-wide">PUSSIBERAD // HACKATHON 2026</span>
+                </div>
+                <h1 class="text-xl md:text-2xl font-display font-bold tracking-tight text-white flex items-center gap-2">
+                    KARTIKA CANARY-SHIELD &amp; MILITARY VAULT
+                </h1>
+                <p class="text-xs text-slate-400 font-normal">
+                    Active Deception Tripwires, Sub-50ms Zero-Day Ransomware Interceptor &amp; Sovereign AES-256-GCM Vault
+                </p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 md:gap-6">
+            <a href="https://github.com/siput-bersenjata" target="_blank" class="flex items-center gap-2 px-3 py-1.5 text-xs font-mono rounded-lg bg-slate-900/80 border border-slate-700/80 text-emerald-400 hover:text-emerald-300 hover:border-emerald-500/50 hover:bg-slate-800 transition" title="Pengembang & Arsitek Pertahanan Siber">
+                <i class="fa-brands fa-github text-sm"></i>
+                <span class="font-medium">siput-bersenjata (Sovian)</span>
+            </a>
+            <div class="text-right font-mono">
+                <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">STATUS OPERASI</p>
+                <div id="badge-top-status" class="flex items-center gap-2 text-xs font-bold text-emerald-400 justify-end mt-0.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>DEFCON 5 // SIAGA NORMAL</span>
+                </div>
+            </div>
+            <div class="hidden sm:block border-l border-slate-800 pl-5 text-right font-mono text-xs text-slate-400">
+                <p id="clock-display" class="font-bold text-slate-300">00:00:00 WIB</p>
+                <p class="text-[10px] text-emerald-400/90 tracking-wider">AIR-GAPPED SOVEREIGN</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Alert Banner -->
+    <section id="alert-banner" class="panel px-5 py-4 border-emerald-500/30 bg-emerald-950/20 transition-all duration-300">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3.5">
+                <div id="alert-banner-icon" class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <h2 id="alert-banner-title" class="font-display font-bold text-base text-white tracking-tight">
+                        SISTEM PERTAHANAN KARTIKA AKTIF // TIDAK ADA ANCAMAN TERDETEKSI
+                    </h2>
+                    <p id="alert-banner-desc" class="text-xs text-slate-300 mt-0.5">
+                        3 Sensor Canary Trap (Dokumen Word, Peta KML, &amp; Honeytoken Cookies) aktif 24/7 di latar belakang. Menjaga berkas dinas &amp; kredensial browser secara otomatis.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2.5 font-mono text-xs flex-wrap">
+                <button onclick="executeTotalCountermeasure()" id="btn-total-countermeasure" class="px-4 py-2 bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-slate-950 font-bold rounded-lg text-xs transition flex items-center gap-2 cursor-pointer shadow-lg shadow-emerald-950/60 pulse-shield border border-emerald-300/40">
+                    <i class="fa-solid fa-shield-halved text-sm"></i> TANGKIS TOTAL SIBER (ONE-CLICK DEFENSE)
+                </button>
+                <button onclick="resetShield()" class="px-3 py-2 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/80 text-slate-300 rounded-lg font-medium transition cursor-pointer flex items-center gap-1.5" title="Reset status & re-arm canary traps">
+                    <i class="fa-solid fa-rotate-right"></i> Reset Status
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Quick Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Card 1 -->
+        <div class="panel p-4 flex flex-col justify-between relative overflow-hidden group">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-mono font-medium text-slate-400 uppercase tracking-wider">ANCAMAN DILUMPUHKAN</span>
+                <span class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 flex items-center justify-center text-xs">
+                    <i class="fa-solid fa-shield-check"></i>
+                </span>
+            </div>
+            <div class="flex items-baseline gap-2 mt-2">
+                <span id="stat-neutralized" class="text-3xl font-display font-extrabold text-white tracking-tight">0</span>
+                <span class="text-xs text-emerald-400 font-mono font-semibold">INSIDEN</span>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-1 font-mono">Zero-Day Attacks Blocked</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="panel p-4 flex flex-col justify-between relative overflow-hidden group">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-mono font-medium text-slate-400 uppercase tracking-wider">RESPONS INTERCEPTOR</span>
+                <span class="w-7 h-7 rounded-lg bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 flex items-center justify-center text-xs">
+                    <i class="fa-solid fa-bolt"></i>
+                </span>
+            </div>
+            <div class="flex items-baseline gap-2 mt-2">
+                <span id="stat-response-time" class="text-3xl font-display font-extrabold text-cyan-400 tracking-tight">&lt; 38</span>
+                <span class="text-xs text-cyan-300 font-mono font-semibold">MILIDETIK</span>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-1 font-mono">Force-Kill &amp; Instant Rollback</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="panel p-4 flex flex-col justify-between relative overflow-hidden group">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-mono font-medium text-slate-400 uppercase tracking-wider">DOKUMEN DILINDUNGI</span>
+                <span class="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center text-xs">
+                    <i class="fa-solid fa-folder-closed"></i>
+                </span>
+            </div>
+            <div class="flex items-baseline gap-2 mt-2">
+                <span id="stat-doc-count" class="text-3xl font-display font-extrabold text-amber-400 tracking-tight">0</span>
+                <span class="text-xs text-amber-300 font-mono font-semibold">BERKAS</span>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-1 font-mono">Excel, Word, KML, Dokumen Taktis</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="panel p-4 flex flex-col justify-between relative overflow-hidden group">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-mono font-medium text-slate-400 uppercase tracking-wider">MODE PERISAI AKTIF</span>
+                <span class="w-7 h-7 rounded-lg bg-purple-500/10 border border-purple-500/25 text-purple-400 flex items-center justify-center text-xs">
+                    <i class="fa-solid fa-tower-broadcast"></i>
+                </span>
+            </div>
+            <div class="flex items-center justify-between mt-2">
+                <span id="shield-mode-text" class="text-sm font-bold text-emerald-400 font-mono tracking-tight">ARMED (AKTIF)</span>
+                <button onclick="toggleShield()" id="btn-toggle-shield" class="px-2.5 py-1 text-[11px] bg-emerald-950/80 border border-emerald-500/50 text-emerald-400 rounded-md hover:bg-emerald-900 transition font-mono cursor-pointer font-semibold">
+                    NONAKTIFKAN
+                </button>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-1 font-mono">Toggle untuk uji komparasi proteksi</span>
+        </div>
+    </div>
+
+    <!-- Unified Defense Mode 1: Kartika Sentinel Volatile Memory & Background Process Radar -->
+    <section class="panel p-5 border-l-4 border-l-cyan-500 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-3.5 border-b border-slate-800 mb-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg shrink-0">
+                    <i class="fa-solid fa-radar"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 mb-0.5">
+                        <span class="px-2 py-0.5 text-[10px] font-mono tracking-wider font-bold bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 rounded-full">
+                            SKENARIO B: TRIAGE SENTINEL MEMORY RADAR
+                        </span>
+                        <span class="text-xs text-slate-400 font-mono">Volatile Memory &amp; Background Process Hunter</span>
+                    </div>
+                    <h2 class="text-base font-display font-bold text-white flex items-center gap-2 tracking-tight">
+                        PEMINDAI MEMORI &amp; PROSES SILUMAN LATAR BELAKANG
+                    </h2>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2.5 font-mono flex-wrap">
+                <div class="text-right mr-1">
+                    <span class="text-[10px] text-slate-400 block font-semibold uppercase tracking-wider">STATUS ANCAMAN BACKGROUND</span>
+                    <span id="sentinel-badge-status" class="px-2.5 py-0.5 text-[11px] font-bold rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 inline-block mt-0.5">
+                        AMAN // SIAGA NORMAL
+                    </span>
+                </div>
+                <button onclick="executeTotalCountermeasure()" class="px-3 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-slate-950 font-bold rounded-lg text-xs transition flex items-center gap-1.5 cursor-pointer shadow-md">
+                    <i class="fa-solid fa-shield-halved"></i> Tangkis Total Siber
+                </button>
+                <button onclick="scanMemoryNow()" id="btn-scan-memory" class="px-3 py-1.5 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 font-semibold rounded-lg text-xs transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i> Pindai Memori
+                </button>
+                <button onclick="killAllThreatsNow()" id="btn-kill-all" class="px-3 py-1.5 bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/40 hover:border-rose-400 text-rose-300 font-semibold rounded-lg text-xs transition flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+                    <i class="fa-solid fa-skull-crossbones"></i> Lumpuhkan Ancaman
+                </button>
+            </div>
+        </div>
+
+        <!-- Dynamic Results Container -->
+        <div id="sentinel-results-container">
+            <div class="p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/15 flex items-center justify-between text-xs text-emerald-300 font-mono">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+                    <span>Memori sistem bersih. Tidak ada proses siluman atau koneksi socket C2 mencurigakan yang terdeteksi di latar belakang.</span>
+                </div>
+                <span class="text-[10px] text-slate-500">Siap Operasional</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unified Defense Mode: Portable Incident Response & DFIR Flashdisk Toolbox (Fitur 11, 14, 15, 20) -->
+    <section class="panel p-5 border-l-4 border-l-amber-500 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-3.5 border-b border-slate-800 mb-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg shrink-0">
+                    <i class="fa-solid fa-toolbox"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 mb-0.5">
+                        <span class="px-2 py-0.5 text-[10px] font-mono tracking-wider font-bold bg-amber-500/15 border border-amber-500/40 text-amber-300 rounded-full">
+                            DFIR FIRST RESPONDER SUITE
+                        </span>
+                        <span class="text-xs text-slate-400 font-mono">Modul Penyelidikan &amp; Mitigasi Taktis Lapangan</span>
+                    </div>
+                    <h2 class="text-base font-display font-bold text-white flex items-center gap-2 tracking-tight">
+                        KOTAK ALAT DFIR OPERASIONAL FLASHDISK (ZERO-DEPENDENCY)
+                    </h2>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 font-mono text-xs">
+                <button onclick="loadTimelineNow()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-cyan-300 rounded-lg transition flex items-center gap-1.5 cursor-pointer font-medium">
+                    <i class="fa-solid fa-timeline"></i> Garis Waktu Insiden (20)
+                </button>
+                <a href="/api/export_timeline_html" target="_blank" class="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-file-invoice"></i> Cetak Berita Acara (HTML)
+                </a>
+            </div>
+        </div>
+
+        <!-- 3 Quick Action Tool Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+            <!-- Tool 1: Registry Deep Cleaner (11) -->
+            <div class="card-inner p-3.5 rounded-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2 text-amber-400 font-bold text-xs font-mono">
+                            <i class="fa-solid fa-key"></i> KUNCI REGISTRY (11)
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-400">Autorun Hunter</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mb-3 leading-relaxed">Bersihkan kunci autorun persisten di HKCU &amp; HKLM Run/RunOnce yang dipasang malware.</p>
+                </div>
+                <button onclick="cleanAllRegistryNow()" class="w-full py-2 px-3 bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 rounded-lg text-xs font-mono font-semibold transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-broom"></i> Bersihkan Semua Autorun
+                </button>
+            </div>
+
+            <!-- Tool 2: AppData/Temp Dropper Hunter (14) -->
+            <div class="card-inner p-3.5 rounded-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2 text-cyan-400 font-bold text-xs font-mono">
+                            <i class="fa-solid fa-vial-virus"></i> VOLATILE DROPPER (14)
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-400">Temp/AppData</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mb-3 leading-relaxed">Pindai file executable &amp; DLL baru (&lt;48 jam) yang disusupkan penyerang ke folder pengguna.</p>
+                </div>
+                <button onclick="scanAppDataNow()" id="btn-scan-appdata" class="w-full py-2 px-3 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 rounded-lg text-xs font-mono font-semibold transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-magnifying-glass"></i> Pindai AppData/Temp
+                </button>
+            </div>
+
+            <!-- Tool 3: VSS Snapshot Recovery (15) -->
+            <div class="card-inner p-3.5 rounded-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs font-mono">
+                            <i class="fa-solid fa-clock-rotate-left"></i> VSS RECOVERY (15)
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-400">Shadow Copy</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mb-3 leading-relaxed">Periksa ketersediaan snapshot cadangan Windows untuk pemulihan dokumen sebelum serangan.</p>
+                </div>
+                <button onclick="checkVssNow()" id="btn-check-vss" class="w-full py-2 px-3 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 rounded-lg text-xs font-mono font-semibold transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-database"></i> Cek Snapshot VSS
+                </button>
+            </div>
+        </div>
+
+        <!-- Dynamic Output Container for DFIR Toolbox -->
+        <div id="dfir-toolbox-output" class="hidden p-4 rounded-xl border border-slate-800 bg-slate-950/80 font-mono text-xs space-y-3 transition-all">
+            <!-- Injected via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Main Workspace Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1">
+
+        <!-- Left Column: Canary Traps & Crypto-Vault Controls (5 Cols) -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+
+            <!-- Card 1: Canary Deception Traps Sensor Grid -->
+            <div class="panel p-5">
+                <div class="flex items-center justify-between mb-4 pb-2.5 border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-radar text-emerald-400"></i>
+                        <h3 class="font-display font-bold text-white text-sm tracking-tight">CANARY TRAP DECEPTION SENSORS</h3>
+                    </div>
+                    <span class="px-2 py-0.5 text-[10px] font-mono bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 rounded-full font-bold">
+                        SUB-50ms POLLING
+                    </span>
+                </div>
+                <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                    Sensor umpan ditempatkan pada posisi abjad teratas di folder dokumen militer. Ransomware yang mencoba mengenkripsi file ini akan memicu respons force-kill seketika.
+                </p>
+
+                <div class="space-y-3" id="canary-list-container">
+                    <div class="card-inner p-3 rounded-lg flex items-center justify-between border-l-2 border-l-emerald-500">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-file-word text-blue-400 text-lg"></i>
+                            <div>
+                                <p class="text-xs font-mono font-bold text-white">!00_CANARY_RENOPS_RAHASIA.docx</p>
+                                <p class="text-[10px] text-slate-400">Sensor Tripwire Format Dokumen Word</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-0.5 text-[10px] font-mono bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 rounded-full font-bold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> SIAGA
+                        </span>
+                    </div>
+
+                    <div class="card-inner p-3 rounded-lg flex items-center justify-between border-l-2 border-l-emerald-500">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-map-location-dot text-amber-400 text-lg"></i>
+                            <div>
+                                <p class="text-xs font-mono font-bold text-white">!00_CANARY_PETA_DISPOSISI.kml</p>
+                                <p class="text-[10px] text-slate-400">Sensor Tripwire Format Peta Koordinat Taktis</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-0.5 text-[10px] font-mono bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 rounded-full font-bold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> SIAGA
+                        </span>
+                    </div>
+
+                    <div class="card-inner p-3 rounded-lg flex items-center justify-between border-l-2 border-l-emerald-500">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-cookie-bite text-amber-400 text-lg"></i>
+                            <div>
+                                <p class="text-xs font-mono font-bold text-white">!00_CANARY_HONEYTOKEN_COOKIES.db</p>
+                                <p class="text-[10px] text-slate-400">Sensor Tripwire Kredensial Browser &amp; Infostealer (T1539)</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-0.5 text-[10px] font-mono bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 rounded-full font-bold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> SIAGA
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Sovereign Military Crypto-Vault (Encryption Tool) -->
+            <div class="panel p-5">
+                <div class="flex items-center justify-between mb-4 pb-2.5 border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-lock text-amber-400"></i>
+                        <h3 class="font-display font-bold text-white text-sm tracking-tight">MILITARY CRYPTO-VAULT (AES-256-GCM)</h3>
+                    </div>
+                    <span class="px-2 py-0.5 text-[10px] font-mono bg-amber-500/15 text-amber-300 border border-amber-500/40 rounded-full font-bold">
+                        ENCRYPTION TOOL
+                    </span>
+                </div>
+                <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                    Enkripsi autentikasi militer untuk mengamankan dokumen dinas sebelum laptop dibawa ke medan operasi atau disimpan dalam kondisi istirahat (At-Rest).
+                </p>
+
+                <div class="mb-4">
+                    <label class="block text-[11px] font-mono text-slate-300 mb-1 font-medium">KUNCI OTORISASI KOMANDAN (PASSPHRASE):</label>
+                    <div class="relative">
+                        <input id="vault-passphrase" type="text" value="KARTIKA-PUSSIBERAD-DEFCON-2026" class="w-full px-3 py-2 bg-slate-900/90 border border-slate-700 rounded-lg text-xs font-mono text-amber-300 focus:outline-none focus:border-amber-500 transition">
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-1 font-mono">PBKDF2-HMAC-SHA256 // 100.000 Iterasi // Galois/Counter Mode Tag</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="lockVault()" class="px-3 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-md">
+                        <i class="fa-solid fa-lock"></i> KUNCI VAULT (ENKRIPSI)
+                    </button>
+                    <button onclick="unlockVault()" class="px-3 py-2 bg-slate-800/90 hover:bg-slate-700 border border-slate-600 text-amber-300 font-bold rounded-lg text-xs transition flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-lock-open"></i> BUKA VAULT (DEKRIPSI)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Quick Action Helpers & Ransomware Decryption -->
+            <div class="panel p-4 flex flex-col gap-3 text-xs">
+                <div class="flex items-center justify-between pb-2.5 border-b border-slate-800">
+                    <div>
+                        <p class="font-bold text-emerald-300 flex items-center gap-1.5"><i class="fa-solid fa-unlock-keyhole text-emerald-400"></i> Rekoveri Dokumen Terkunci</p>
+                        <p class="text-[11px] text-slate-400">Dekripsi berkas .LOCKED_PUSSIBERAD kembali normal</p>
+                    </div>
+                    <button onclick="restoreAllRansomwareFiles()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs transition cursor-pointer flex items-center gap-1.5 shadow-md shadow-emerald-950/50">
+                        <i class="fa-solid fa-key"></i> Pulihkan Berkas
+                    </button>
+                </div>
+                <div class="flex items-center justify-between pt-0.5">
+                    <div>
+                        <p class="font-bold text-white">Regenerasi Dokumen Contoh</p>
+                        <p class="text-[11px] text-slate-400">Buat ulang sampel dokumen dinas (.docx, .xlsx, .kml)</p>
+                    </div>
+                    <button onclick="restoreOriginals()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-300 rounded-lg text-[11px] font-mono transition cursor-pointer">
+                        <i class="fa-solid fa-rotate"></i> Buat Sampel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Document Explorer & Forensic Incident Feed (7 Cols) -->
+        <div class="lg:col-span-7 flex flex-col gap-6">
+
+            <!-- Card 4: Protected Documents Explorer -->
+            <div class="panel p-5 flex flex-col flex-1">
+                <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-folder-closed text-cyan-400"></i>
+                        <h3 class="font-display font-bold text-white text-sm tracking-tight">EXPLORER DOKUMEN MILITER TERLINDUNGI</h3>
+                    </div>
+                    <span id="folder-path-display" class="text-[11px] font-mono text-cyan-400 truncate max-w-[280px]">
+                        sandbox_dokumen_militer
+                    </span>
+                </div>
+
+                <!-- Dynamic Folder Protection Selector -->
+                <div class="mb-4 p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2.5">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-300 font-mono font-medium"><i class="fa-solid fa-folder-tree mr-1.5 text-cyan-400"></i> DIREKTORI PROTEKSI AKTIF:</span>
+                        <span class="text-[10px] text-slate-400 font-mono">Canary-Shield &amp; Vault aktif di folder ini</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" id="watch-dir-input" placeholder="Masukkan path folder (misal: C:\Users\...\Desktop\FolderUji)" class="flex-1 bg-black/60 border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-300 focus:outline-none focus:border-cyan-500 transition">
+                        <button onclick="navigateShieldParent()" title="Kembali ke folder induk (naik 1 level)" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium rounded-lg text-xs transition cursor-pointer flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-turn-up"></i> Naik 1 Level
+                        </button>
+                        <button onclick="changeWatchDirectory()" class="px-3 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold rounded-lg text-xs transition cursor-pointer flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-shield-virus"></i> Lindungi Folder
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 items-center text-[10px] font-mono pt-0.5">
+                        <span class="text-slate-400 font-medium">Preset Cepat:</span>
+                        <button onclick="setWatchPreset('SANDBOX')" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded cursor-pointer transition">Default Sandbox</button>
+                        <button onclick="setWatchPreset('DESKTOP')" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded cursor-pointer transition">Desktop</button>
+                        <button onclick="setWatchPreset('DOCUMENTS')" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded cursor-pointer transition">Documents</button>
+                        <button onclick="setWatchPreset('DOWNLOADS')" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded cursor-pointer transition">Downloads</button>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/60">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead class="text-slate-400 font-mono border-b border-slate-800 bg-slate-900/80 uppercase text-[10px] font-semibold tracking-wider">
+                            <tr>
+                                <th class="py-3 px-3.5 whitespace-nowrap min-w-[260px]"><i class="fa-solid fa-file-code mr-1.5 text-cyan-400"></i> NAMA BERKAS</th>
+                                <th class="py-3 px-3 whitespace-nowrap min-w-[90px]"><i class="fa-solid fa-database mr-1.5 text-slate-400"></i> UKURAN</th>
+                                <th class="py-3 px-3 whitespace-nowrap min-w-[200px]"><i class="fa-solid fa-shield-halved mr-1.5 text-emerald-400"></i> STATUS KEAMANAN</th>
+                                <th class="py-3 px-3.5 whitespace-nowrap text-right min-w-[130px]"><i class="fa-solid fa-bolt mr-1.5 text-amber-400"></i> PROTEKSI / AKSI</th>
+                            </tr>
+                        </thead>
+                        <tbody id="documents-tbody" class="divide-y divide-slate-800/60 font-mono">
+                            <!-- Populated dynamically via JS -->
+                            <tr>
+                                <td colspan="4" class="py-6 px-4 text-center text-slate-400 font-mono">
+                                    <i class="fa-solid fa-spinner fa-spin mr-2 text-cyan-400"></i> Memuat berkas dinas...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Card 5: Real-time Incident & Forensic Response Feed -->
+            <div class="panel p-5">
+                <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-rose-400"></i>
+                        <h3 class="font-display font-bold text-white text-sm tracking-tight">LOG FORENSIK RESPON PENANGKALAN (MITRE ATT&amp;CK T1486)</h3>
+                    </div>
+                    <span class="text-[10px] font-mono text-slate-400">AUDIT FORENSIK DIGITAL</span>
+                </div>
+
+                <div id="incident-feed-container" class="bg-black/60 border border-slate-800/80 rounded-xl p-3 h-48 overflow-y-auto font-mono text-[11px] space-y-2">
+                    <div class="text-slate-500">[SYSTEM ARMED] Canary-Shield aktif memantau I/O berkas... Menunggu event.</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Note & Watermark -->
+    <footer class="mt-6 pt-4 pb-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400 font-mono">
+        <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>KARTIKA CYBER HACKATHON 2026 // Kategori 02: DEFENSIVE SHIELD // Pusat Siber TNI AD</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span>Rancang Bangun Pertahanan:</span>
+            <a href="https://github.com/siput-bersenjata" target="_blank" class="text-slate-200 hover:text-emerald-400 flex items-center gap-1.5 font-semibold transition">
+                <i class="fa-brands fa-github text-sm"></i> siput-bersenjata (Sovian)
+            </a>
+            <span class="text-[10px] px-2 py-0.5 rounded-full border border-slate-800 bg-slate-900 text-slate-400 font-mono">AUTH-SIGN-CANARY-2026</span>
+        </div>
+    </footer>
+    </div>
+
+    <!-- JavaScript Client Logic -->
+    <script>
+        let currentStatus = null;
+
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('id-ID', { hour12: false }) + ' WIB';
+            const clockEl = document.getElementById('clock-display');
+            if (clockEl) clockEl.innerText = timeStr;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        async function fetchTelemetry() {
+            try {
+                const res = await fetch('/api/telemetry');
+                if (!res.ok) return;
+                const data = await res.json();
+                currentStatus = data;
+                renderUI(data);
+            } catch (err) {
+                console.error("Telemetry error:", err);
+            }
+        }
+
+        function renderUI(data) {
+            // Update stats
+            if (data.stats) {
+                const statNeut = document.getElementById('stat-neutralized');
+                if (statNeut) statNeut.innerText = data.stats.threats_neutralized ?? 0;
+                const statResp = document.getElementById('stat-response-time');
+                if (statResp) statResp.innerText = `< ${data.stats.average_response_time_ms ?? 38.4}`;
+                const statDocs = document.getElementById('stat-doc-count');
+                if (statDocs) statDocs.innerText = data.stats.protected_documents_count ?? 0;
+            }
+
+            // Shield Toggle UI
+            const modeText = document.getElementById('shield-mode-text');
+            const toggleBtn = document.getElementById('btn-toggle-shield');
+            if (modeText && toggleBtn) {
+                if (data.shield_active) {
+                    modeText.innerText = "ARMED (AKTIF)";
+                    modeText.className = "text-sm font-bold text-emerald-400 font-mono tracking-tight";
+                    toggleBtn.innerText = "NONAKTIFKAN";
+                    toggleBtn.className = "px-2.5 py-1 text-[11px] bg-emerald-950/80 border border-emerald-500/50 text-emerald-400 rounded-md hover:bg-emerald-900 transition font-mono cursor-pointer font-semibold";
+                } else {
+                    modeText.innerText = "STANDBY (OFF)";
+                    modeText.className = "text-sm font-bold text-rose-400 font-mono tracking-tight";
+                    toggleBtn.innerText = "AKTIFKAN";
+                    toggleBtn.className = "px-2.5 py-1 text-[11px] bg-rose-950/80 border border-rose-500/50 text-rose-400 rounded-md hover:bg-rose-900 transition font-mono cursor-pointer font-semibold";
+                }
+            }
+
+            // Banner State
+            const banner = document.getElementById('alert-banner');
+            const bIcon = document.getElementById('alert-banner-icon');
+            const bTitle = document.getElementById('alert-banner-title');
+            const bDesc = document.getElementById('alert-banner-desc');
+            const topBadge = document.getElementById('badge-top-status');
+
+            if (banner && bIcon && bTitle && bDesc && topBadge) {
+                if (data.stats && data.stats.threats_neutralized > 0 && data.system_status === "DEFCON_1_INTERCEPTED") {
+                    banner.className = "panel px-5 py-4 border-rose-500/50 bg-rose-950/25 pulse-alert transition-all duration-300";
+                    bIcon.className = "w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/40 flex items-center justify-center text-lg shrink-0";
+                    bIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                    
+                    const lastInc = (data.incident_history && data.incident_history.length > 0) ? data.incident_history[0] : null;
+                    if (lastInc && (lastInc.type.includes("COOKIE") || lastInc.type.includes("INFOSTEALER"))) {
+                        bTitle.innerText = "PERCOBAAN PENCURIAN COOKIE (T1539) BERHASIL DILUMPUHKAN OTOMATIS (< 50 MS)!";
+                        bDesc.innerText = "Sensor Canary Kredensial mendeteksi upaya ekstraksi session cookie. Proses infostealer otomatis di-force kill 24/7 dan data aman!";
+                    } else {
+                        bTitle.innerText = "ANCAMAN ZERO-DAY SIBER BERHASIL DILUMPUHKAN (< 50 MS)!";
+                        bDesc.innerText = "Sensor Canary Trap aktif mendeteksi serangan. Proses penyerang langsung di-force kill otomatis dan dokumen dinas 100% aman!";
+                    }
+                    topBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-rose-400 animate-ping"></span><span class="text-rose-400">DEFCON 1 // ANCAMAN DITANGKAL</span>';
+                } else if (data.system_status === "BREACHED_UNPROTECTED") {
+                    banner.className = "panel px-5 py-4 border-red-500/60 bg-red-950/30 transition-all duration-300";
+                    bIcon.className = "w-10 h-10 rounded-xl bg-red-500/20 text-red-400 border border-red-500/40 flex items-center justify-center text-lg shrink-0";
+                    bIcon.innerHTML = '<i class="fa-solid fa-skull-crossbones"></i>';
+                    bTitle.innerText = "PERINGATAN: DOKUMEN TERKUNCI KARENA PERISAI NONAKTIF!";
+                    bDesc.innerHTML = 'Ditemukan berkas yang terkunci serangan (.LOCKED_PUSSIBERAD). <button onclick="restoreAllRansomwareFiles()" class="ml-2 px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs transition cursor-pointer inline-flex items-center gap-1.5 shadow border border-emerald-400"><i class="fa-solid fa-unlock-keyhole"></i> KLIK UNTUK PULIHKAN SEMUA BERKAS</button>';
+                    topBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500"></span><span class="text-red-400">TERINFEKSI (UNPROTECTED)</span>';
+                } else {
+                    banner.className = "panel px-5 py-4 border-emerald-500/30 bg-emerald-950/20 transition-all duration-300";
+                    bIcon.className = "w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-lg shrink-0";
+                    bIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                    bTitle.innerText = "SISTEM PERTAHANAN KARTIKA AKTIF // TIDAK ADA ANCAMAN TERDETEKSI";
+                    bDesc.innerText = "3 Sensor Canary Trap (Word, KML, & Kredensial Cookies) aktif 24/7 di latar belakang. Menjaga dokumen & browser secara otomatis.";
+                    topBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-emerald-400">DEFCON 5 // SIAGA NORMAL</span>';
+                }
+            }
+
+            // Documents Table
+            const tbody = document.getElementById('documents-tbody');
+            currentShieldParentDir = data.parent_dir || "";
+            let html = "";
+
+            if (data.parent_dir) {
+                html += `
+                    <tr class="bg-slate-900/40 hover:bg-slate-800/60 border-b border-slate-800/80 cursor-pointer transition" onclick="navigateShieldParent()">
+                        <td class="py-2.5 px-3.5 whitespace-nowrap flex items-center gap-2.5 text-cyan-300 font-mono font-bold">
+                            <span class="w-7 h-7 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-level-up-alt text-cyan-400 text-xs"></i>
+                            </span>
+                            <span class="hover:underline">.. (Kembali ke Folder Sebelumnya / Naik 1 Level)</span>
+                        </td>
+                        <td class="py-2.5 px-3 whitespace-nowrap text-slate-400 font-mono text-[11px]">&lt;PARENT&gt;</td>
+                        <td class="py-2.5 px-3 whitespace-nowrap"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-500/40 rounded-full font-bold"><i class="fa-solid fa-folder-tree"></i> FOLDER INDUK</span></td>
+                        <td class="py-2.5 px-3.5 whitespace-nowrap text-right">
+                            <button onclick="event.stopPropagation(); navigateShieldParent()" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 rounded-md text-[10px] font-semibold cursor-pointer transition">Naik Level</button>
+                        </td>
+                    </tr>
+                `;
+            }
+
+            if (data.protected_files && data.protected_files.length > 0) {
+                data.protected_files.forEach(f => {
+                    if (f.is_dir) {
+                        html += `
+                            <tr class="hover:bg-slate-800/30 transition border-b border-slate-800/60">
+                                <td class="py-2.5 px-3.5 whitespace-nowrap">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="w-7 h-7 rounded-lg bg-amber-950/60 border border-amber-500/30 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-folder text-amber-400 text-xs"></i>
+                                        </span>
+                                        <a href="javascript:void(0)" onclick="openShieldSubdir('${f.filename}')" class="text-amber-300 font-medium hover:underline flex items-center gap-1.5 font-mono text-xs">
+                                            ${f.filename} <span class="text-slate-500">/</span>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="py-2.5 px-3 whitespace-nowrap text-slate-400 font-mono text-[11px]">&lt;FOLDER&gt;</td>
+                                <td class="py-2.5 px-3 whitespace-nowrap"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] bg-amber-950/80 text-amber-300 border border-amber-500/40 rounded-full font-bold"><i class="fa-solid fa-folder mr-0.5"></i> SUBFOLDER</span></td>
+                                <td class="py-2.5 px-3.5 whitespace-nowrap text-right">
+                                    <button onclick="openShieldSubdir('${f.filename}')" class="px-2.5 py-1 bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/40 rounded-md text-[10px] font-semibold cursor-pointer transition">
+                                        <i class="fa-solid fa-folder-open mr-1"></i> Buka Folder
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                        return;
+                    }
+
+                    let icon = "fa-file";
+                    let iconColor = "text-slate-400";
+                    let iconBg = "bg-slate-800/70 border-slate-700";
+                    if (f.filename.endsWith(".xlsx")) { icon = "fa-file-excel"; iconColor = "text-emerald-400"; iconBg = "bg-emerald-950/60 border-emerald-500/30"; }
+                    else if (f.filename.endsWith(".docx")) { icon = "fa-file-word"; iconColor = "text-blue-400"; iconBg = "bg-blue-950/60 border-blue-500/30"; }
+                    else if (f.filename.endsWith(".kml")) { icon = "fa-map-location-dot"; iconColor = "text-amber-400"; iconBg = "bg-amber-950/60 border-amber-500/30"; }
+                    else if (f.filename.endsWith(".milvault")) { icon = "fa-shield-halved"; iconColor = "text-amber-300"; iconBg = "bg-amber-950/60 border-amber-500/40"; }
+                    else if (f.filename.endsWith(".LOCKED_PUSSIBERAD")) { icon = "fa-lock"; iconColor = "text-rose-400"; iconBg = "bg-rose-950/60 border-rose-500/40"; }
+
+                    let badge = "";
+                    if (f.status === "CANARY_SENSOR_TRAP") {
+                        badge = '<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-500/40 rounded-full font-bold whitespace-nowrap"><i class="fa-solid fa-radar text-cyan-400"></i> SENSOR CANARY</span>';
+                    } else if (f.status === "TERENKRIPSI_MILVAULT_AES256") {
+                        badge = '<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] bg-amber-950/80 text-amber-300 border border-amber-500/40 rounded-full font-bold whitespace-nowrap"><i class="fa-solid fa-key text-amber-400"></i> ENKRIPSI MILVAULT (AES-256)</span>';
+                    } else if (f.status === "TERKUNCI_RANSOMWARE") {
+                        badge = '<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] bg-rose-950/80 text-rose-300 border border-rose-500/40 rounded-full font-bold whitespace-nowrap animate-pulse"><i class="fa-solid fa-triangle-exclamation text-rose-400"></i> TERKUNCI RANSOMWARE</span>';
+                    } else {
+                        badge = '<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 rounded-full font-bold whitespace-nowrap"><i class="fa-solid fa-circle-check text-emerald-400"></i> AMAN &amp; TERVERIFIKASI</span>';
+                    }
+
+                    const sizeKb = (f.size_bytes / 1024).toFixed(1) + " KB";
+
+                    html += `
+                        <tr class="hover:bg-slate-800/30 transition border-b border-slate-800/60">
+                            <td class="py-2.5 px-3.5 whitespace-nowrap">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-7 h-7 rounded-lg ${iconBg} border flex items-center justify-center shrink-0">
+                                        <i class="fa-solid ${icon} ${iconColor} text-xs"></i>
+                                    </span>
+                                    <span class="text-slate-100 font-medium font-mono text-xs truncate max-w-[280px]" title="${f.filename}">${f.filename}</span>
+                                </div>
+                            </td>
+                            <td class="py-2.5 px-3 whitespace-nowrap text-slate-400 font-mono text-xs">${sizeKb}</td>
+                            <td class="py-2.5 px-3 whitespace-nowrap">${badge}</td>
+                            <td class="py-2.5 px-3.5 whitespace-nowrap text-right">
+                                ${f.status === 'TERKUNCI_RANSOMWARE' ? `
+                                    <button onclick="restoreRansomwareFile('${f.filename}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-md text-[10px] font-bold cursor-pointer transition shadow-md shadow-emerald-950/60 inline-flex items-center gap-1 border border-emerald-400">
+                                        <i class="fa-solid fa-unlock-keyhole"></i> Pulihkan File
+                                    </button>
+                                ` : `
+                                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold ${f.is_canary ? 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/30' : 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/30'}">
+                                        <i class="fa-solid ${f.is_canary ? 'fa-eye' : 'fa-shield'}"></i>
+                                        ${f.is_canary ? 'Auto-Watch' : 'Protected'}
+                                    </span>
+                                `}
+                            </td>
+                        </tr>
+                    `;
+                });
+                tbody.innerHTML = html;
+            } else if (!data.parent_dir) {
+                tbody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500 font-mono text-xs">Tidak ada berkas di direktori.</td></tr>`;
+            } else {
+                tbody.innerHTML = html;
+            }
+
+            // Incident Feed
+            const feed = document.getElementById('incident-feed-container');
+            if (feed && data.incident_history && data.incident_history.length > 0) {
+                let feedHtml = "";
+                data.incident_history.forEach(inc => {
+                    let killDetails = "";
+                    if (inc.killed_processes && inc.killed_processes.length > 0) {
+                        killDetails = inc.killed_processes.map(kp => `<div class="text-rose-400 ml-4 font-bold flex items-center gap-1.5"><i class="fa-solid fa-skull text-[10px]"></i> [FORCE KILL] PID ${kp.pid} (${kp.name}) // CMD: ${kp.cmdline}</div>`).join("");
+                    }
+                    feedHtml += `
+                        <div class="border-b border-slate-800/80 pb-2.5 mb-2 last:border-0 last:mb-0 space-y-1">
+                            <div class="flex items-center justify-between text-slate-400 text-[10px]">
+                                <span class="text-cyan-400 font-bold"><i class="fa-solid fa-clock mr-1"></i>${inc.timestamp}</span>
+                                <span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800 font-mono text-[9px]">${inc.id}</span>
+                            </div>
+                            <div class="text-amber-300 font-bold text-xs"><i class="fa-solid fa-triangle-exclamation mr-1 text-amber-400"></i>[EVENT] ${inc.event_type} &rarr; <span class="text-white font-mono">${inc.target_canary}</span></div>
+                            <div class="text-cyan-300 text-[11px] ml-2 flex items-center gap-1"><i class="fa-solid fa-bolt text-cyan-400 text-[10px]"></i> Intercepted in <strong class="text-white">${inc.response_time_ms} ms</strong>!</div>
+                            ${killDetails}
+                            <div class="text-emerald-400 text-[11px] ml-2 flex items-center gap-1"><i class="fa-solid fa-circle-check text-[10px]"></i> [RESULT] ${inc.status} (Rollback Canary OK)</div>
+                        </div>
+                    `;
+                });
+                feed.innerHTML = feedHtml;
+            }
+
+            if (data.watch_dir) {
+                const folderDisplay = document.getElementById('folder-path-display');
+                if (folderDisplay) folderDisplay.innerText = data.watch_dir;
+                const dirInput = document.getElementById('watch-dir-input');
+                if (dirInput && !dirInput.matches(':focus') && !dirInput.value) {
+                    dirInput.value = data.watch_dir;
+                }
+            }
+
+            // Render Sentinel Memory Triage Radar (FIXED & POLISHED)
+            if (data.sentinel) {
+                const s = data.sentinel;
+                const badge = document.getElementById('sentinel-badge-status');
+                const killAllBtn = document.getElementById('btn-kill-all');
+                const container = document.getElementById('sentinel-results-container');
+
+                const threatCount = s.threat_count || (s.threats ? s.threats.length : 0);
+                const persistenceAlerts = s.persistence_alerts || [];
+                const hasThreats = threatCount > 0;
+                const hasPersistence = persistenceAlerts.length > 0;
+
+                if (badge) {
+                    if (hasThreats) {
+                        badge.innerText = `SIAGA KRITIS // ${threatCount} PROSES MEMORI`;
+                        badge.className = "px-2.5 py-0.5 text-[11px] font-bold rounded-full bg-rose-950 text-rose-400 border border-rose-600/50 animate-pulse";
+                    } else if (hasPersistence) {
+                        badge.innerText = `WASPADA // ${persistenceAlerts.length} AUTORUN STARTUP`;
+                        badge.className = "px-2.5 py-0.5 text-[11px] font-bold rounded-full bg-amber-950 text-amber-400 border border-amber-600/50";
+                    } else {
+                        badge.innerText = s.threat_level || "AMAN // SIAGA NORMAL";
+                        badge.className = "px-2.5 py-0.5 text-[11px] font-bold rounded-full bg-emerald-950 text-emerald-400 border border-emerald-600/50";
+                    }
+                }
+
+                if (killAllBtn) {
+                    killAllBtn.disabled = !hasThreats && !hasPersistence;
+                }
+
+                if (container) {
+                    if (hasThreats || hasPersistence) {
+                        let alertBoxHtml = '';
+                        if (hasThreats && hasPersistence) {
+                            alertBoxHtml = `
+                                <div class="p-3.5 bg-rose-950/30 border border-rose-500/50 rounded-xl text-xs text-rose-200 flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-triangle-exclamation text-rose-400 text-base"></i>
+                                        <span><strong>PERINGATAN KRITIS:</strong> Ditemukan <strong>${threatCount}</strong> proses siluman mencurigakan di memori &amp; <strong>${persistenceAlerts.length}</strong> entri registri autorun persisten!</span>
+                                    </div>
+                                    <span class="font-mono text-[10px] text-slate-400">Dipindai: ${s.timestamp || ''}</span>
+                                </div>
+                            `;
+                        } else if (hasThreats) {
+                            alertBoxHtml = `
+                                <div class="p-3.5 bg-rose-950/30 border border-rose-500/50 rounded-xl text-xs text-rose-200 flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-triangle-exclamation text-rose-400 text-base"></i>
+                                        <span><strong>PERINGATAN SIBER MEMORI:</strong> Ditemukan <strong>${threatCount}</strong> proses siluman mencurigakan di memori sistem yang aktif di latar belakang!</span>
+                                    </div>
+                                    <span class="font-mono text-[10px] text-slate-400">Dipindai: ${s.timestamp || ''}</span>
+                                </div>
+                            `;
+                        } else {
+                            // Only persistence alerts (threatCount === 0)
+                            alertBoxHtml = `
+                                <div class="p-3.5 bg-amber-950/30 border border-amber-500/50 rounded-xl text-xs text-amber-200 flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base"></i>
+                                        <span><strong>PERINGATAN PERSISTENSI REGISTRY:</strong> Memori RAM bersih, tetapi terdeteksi <strong>${persistenceAlerts.length}</strong> kunci autorun persisten di Windows Startup!</span>
+                                    </div>
+                                    <span class="font-mono text-[10px] text-slate-400">Dipindai: ${s.timestamp || ''}</span>
+                                </div>
+                            `;
+                        }
+
+                        let sHtml = `
+                            <div class="space-y-3">
+                                ${alertBoxHtml}
+                                <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70">
+                                    <table class="w-full text-left text-xs font-mono border-collapse">
+                                        <thead class="bg-slate-900/90 text-slate-400 text-[10px] border-b border-slate-800 uppercase tracking-wider font-semibold">
+                                            <tr>
+                                                <th class="p-3 min-w-[80px]">PID</th>
+                                                <th class="p-3 min-w-[260px]">NAMA PROSES / EXECUTABLE</th>
+                                                <th class="p-3 min-w-[220px]">INDIKASI ANCAMAN SIBER</th>
+                                                <th class="p-3 min-w-[100px]">TINGKAT</th>
+                                                <th class="p-3 text-right min-w-[130px]">AKSI CEPAT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-slate-800/80 text-[11px]">
+                        `;
+                        (s.threats || []).forEach(t => {
+                            const reasonStr = (t.reasons || []).join('; ');
+                            const masqueradeBadge = t.is_masquerade ? '<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 mr-1"><i class="fa-solid fa-mask"></i> MASQUERADE</span>' : '';
+                            const hiddenBadge = t.is_hidden ? '<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40 mr-1"><i class="fa-solid fa-eye-slash"></i> SILUMAN</span>' : '';
+                            sHtml += `
+                                <tr class="hover:bg-rose-950/20 transition">
+                                    <td class="p-3 text-cyan-400 font-bold">${t.pid}</td>
+                                    <td class="p-3 text-white">
+                                        <div class="flex items-center gap-1">${masqueradeBadge}${hiddenBadge}<strong>${t.name}</strong></div>
+                                        <div class="text-[10px] text-slate-400 truncate max-w-[320px] font-mono mt-0.5" title="${t.exe_path}">${t.exe_path}</div>
+                                    </td>
+                                    <td class="p-3 text-amber-300">${reasonStr}</td>
+                                    <td class="p-3">
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/15 text-rose-300 border border-rose-500/40">${t.severity || 'TINGGI'}</span>
+                                    </td>
+                                    <td class="p-3 text-right">
+                                        <button onclick="killProcessNow(${t.pid})" class="px-2.5 py-1 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 rounded-md font-semibold text-[10px] transition cursor-pointer">
+                                            <i class="fa-solid fa-power-off"></i> Lumpuhkan PID
+                                        </button>
+                                    </td>
+                                </tr>
+                            `;
+                        });
+                        persistenceAlerts.forEach(pa => {
+                            sHtml += `
+                                <tr class="bg-amber-950/15 text-amber-300 hover:bg-amber-950/25 transition">
+                                    <td class="p-3"><span class="px-1.5 py-0.5 rounded font-bold text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30">AUTORUN</span></td>
+                                    <td class="p-3 text-white" colspan="2">
+                                        <div class="font-bold text-slate-200">[Registry Startup] ${pa.key_name} <span class="text-xs text-amber-400 font-normal">(${pa.scope})</span></div>
+                                        <div class="text-[10px] text-slate-400 truncate max-w-[500px] font-mono mt-0.5" title="${pa.command}">${pa.command}</div>
+                                    </td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-300 border border-amber-500/40">PERSISTEN</span></td>
+                                    <td class="p-3 text-right">
+                                        <button onclick="cleanSingleRegistry('${pa.scope}', '${pa.key_name}')" class="px-2.5 py-1 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 rounded-md text-[10px] font-semibold cursor-pointer transition">
+                                            <i class="fa-solid fa-broom"></i> Bersihkan Kunci
+                                        </button>
+                                    </td>
+                                </tr>
+                            `;
+                        });
+                        sHtml += `
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        `;
+                        container.innerHTML = sHtml;
+                    } else {
+                        container.innerHTML = `
+                            <div class="p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/15 flex items-center justify-between text-xs text-emerald-300 font-mono">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+                                    <span>Memori sistem bersih. Tidak ada proses siluman atau koneksi socket C2 mencurigakan yang terdeteksi di latar belakang.</span>
+                                </div>
+                                <span class="text-[10px] text-slate-500">Terakhir dipindai: ${s.timestamp || '-'}</span>
+                            </div>
+                        `;
+                    }
+                }
+            }
+        }
+
+        async function executeTotalCountermeasure() {
+            const btn = document.getElementById('btn-total-countermeasure');
+            const originalText = btn ? btn.innerHTML : '';
+            if (btn) {
+                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-sm"></i> MENJALANKAN PENANGKALAN TOTAL...`;
+                btn.disabled = true;
+            }
+
+            const out = document.getElementById('dfir-toolbox-output');
+            if (out) {
+                out.classList.remove('hidden');
+                out.innerHTML = `
+                    <div class="flex items-center gap-3 text-cyan-400 py-3">
+                        <i class="fa-solid fa-gear fa-spin text-2xl"></i>
+                        <div>
+                            <p class="font-bold text-sm">OPERASI TANGKIS TOTAL SIBER KARTIKA SEDANG BERLANGSUNG...</p>
+                            <p class="text-xs text-slate-400">Mempersenjatai tripwire, memindai RAM, melumpuhkan malware, membersihkan autorun registri, mendekripsi dokumen, memeriksa snapshot VSS cadangan...</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            try {
+                const res = await fetch('/api/defense/total_action', { method: 'POST' });
+                const data = await res.json();
+
+                if (out) {
+                    let stepsHtml = '';
+                    (data.steps || []).forEach(s => {
+                        const isOk = s.status === 'SUCCESS';
+                        const badgeColor = isOk ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40' : 'bg-amber-500/15 text-amber-300 border-amber-500/40';
+                        const icon = isOk ? 'fa-check text-emerald-400' : 'fa-triangle-exclamation text-amber-400';
+                        stepsHtml += `
+                            <div class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/60 flex items-start gap-3">
+                                <i class="fa-solid ${icon} mt-0.5"></i>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-white text-xs">${s.feature}</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-mono border ${badgeColor}">${s.status}</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-300 mt-1">${s.detail}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    out.innerHTML = `
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between border-b border-emerald-500/40 pb-2.5">
+                                <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                                    <i class="fa-solid fa-circle-check text-base"></i>
+                                    <span>${data.title || 'OPERASI PENANGKALAN TOTAL BERHASIL 100%'}</span>
+                                </div>
+                                <button onclick="document.getElementById('dfir-toolbox-output').classList.add('hidden')" class="text-xs text-slate-400 hover:text-white cursor-pointer">
+                                    <i class="fa-solid fa-xmark"></i> Tutup
+                                </button>
+                            </div>
+                            <p class="text-xs text-slate-200">${data.message}</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
+                                ${stepsHtml}
+                            </div>
+                            <div class="text-[10px] text-slate-400 pt-2 flex items-center justify-between border-t border-slate-800">
+                                <span>Waktu Operasi: ${data.executed_at || '-'} WIB</span>
+                                <span class="text-emerald-400 font-bold">100% AIR-GAPPED DEFENSIVE COMPLIANT</span>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                fetchTelemetry();
+                const bannerTitle = document.getElementById('alert-banner-title');
+                if (bannerTitle) bannerTitle.innerText = "OPERASI PENANGKALAN TOTAL BERHASIL // SISTEM KEMBALI 100% AMAN";
+            } catch (err) {
+                alert("Gagal menjalankan penangkalan total: " + err);
+            } finally {
+                if (btn) {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
+            }
+        }
+
+        async function scanMemoryNow() {
+            const btn = document.getElementById('btn-scan-memory');
+            if (btn) btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> MEMINDAI RAM...`;
+            try {
+                const res = await fetch('/api/sentinel/scan', { method: 'POST' });
+                const data = await res.json();
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal memindai memori: " + err);
+            } finally {
+                if (btn) btn.innerHTML = `<i class="fa-solid fa-magnifying-glass-chart"></i> Pindai Memori`;
+            }
+        }
+
+        async function killProcessNow(pid) {
+            if (!confirm(`Lumpuhkan dan hentikan proses ancaman PID ${pid}?`)) return;
+            try {
+                const res = await fetch('/api/sentinel/kill', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ pid: pid })
+                });
+                const data = await res.json();
+                alert(data.message);
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal melumpuhkan proses: " + err);
+            }
+        }
+
+        async function killAllThreatsNow() {
+            if (!confirm("Lumpuhkan SELURUH proses ancaman di memori dan bersihkan persistensi Windows?")) return;
+            const btn = document.getElementById('btn-kill-all');
+            if (btn) btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> MELUMPUHKAN...`;
+            try {
+                const res = await fetch('/api/sentinel/kill_all', { method: 'POST' });
+                const data = await res.json();
+                alert(data.message);
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal melumpuhkan ancaman: " + err);
+            } finally {
+                if (btn) btn.innerHTML = `<i class="fa-solid fa-skull-crossbones"></i> Lumpuhkan Ancaman`;
+            }
+        }
+
+        // =====================================================================
+        // DFIR FIRST RESPONDER SUITE FUNCTIONS (FITUR 11, 14, 15, 19, 20)
+        // =====================================================================
+        async function cleanAllRegistryNow() {
+            if (!confirm("Bersihkan seluruh kunci autorun registri mencurigakan (Fitur 11)?")) return;
+            try {
+                const res = await fetch('/api/sentinel/clean_registry', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                const data = await res.json();
+                alert(data.message);
+                await fetch('/api/sentinel/scan', { method: 'POST' });
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal membersihkan registri: " + err);
+            }
+        }
+
+        async function cleanSingleRegistry(scope, keyName) {
+            if (!confirm(`Hapus autorun '${keyName}' dari ${scope}?`)) return;
+            try {
+                const res = await fetch('/api/sentinel/clean_registry', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ scope: scope, key_name: keyName })
+                });
+                const data = await res.json();
+                alert(data.message);
+                await fetch('/api/sentinel/scan', { method: 'POST' });
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal menghapus kunci: " + err);
+            }
+        }
+
+        async function scanAppDataNow() {
+            const out = document.getElementById('dfir-toolbox-output');
+            const btn = document.getElementById('btn-scan-appdata');
+            if (btn) btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> MEMINDAI...`;
+            if (out) {
+                out.classList.remove('hidden');
+                out.innerHTML = `<div class="text-cyan-300"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Memindai AppData & Temp mencari binary executable baru (&lt;48 jam)...</div>`;
+            }
+            try {
+                const res = await fetch('/api/sentinel/scan_appdata?hours=48');
+                const data = await res.json();
+                if (out) {
+                    let html = `
+                        <div class="flex items-center justify-between pb-2 border-b border-slate-700">
+                            <span class="text-cyan-400 font-bold flex items-center gap-2"><i class="fa-solid fa-vial-virus"></i> HASIL PEMINDAIAN DROPPER APPDATA/TEMP (${data.total_found} File Ditemukan)</span>
+                            <button onclick="document.getElementById('dfir-toolbox-output').classList.add('hidden')" class="text-slate-400 hover:text-white cursor-pointer">&times; Tutup</button>
+                        </div>
+                        <div class="overflow-x-auto max-h-60 overflow-y-auto">
+                            <table class="w-full text-left text-xs border-collapse font-mono">
+                                <thead class="bg-slate-900 text-slate-400 text-[10px]">
+                                    <tr>
+                                        <th class="p-2">NAMA BERKAS</th>
+                                        <th class="p-2">LOKASI LENGKAP</th>
+                                        <th class="p-2">UKURAN</th>
+                                        <th class="p-2">TIMESTAMP MODIFIKASI</th>
+                                        <th class="p-2">HASH SHA-256</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800 text-[11px]">
+                    `;
+                    if (data.files && data.files.length > 0) {
+                        data.files.forEach(f => {
+                            const rowClass = f.is_suspicious ? "bg-rose-950/20 text-rose-300" : "hover:bg-slate-800/40 text-slate-300";
+                            const hashShort = f.sha256 ? f.sha256.substring(0, 16) + '...' : '-';
+                            html += `
+                                <tr class="${rowClass}">
+                                    <td class="p-2 font-bold text-white">${f.name}</td>
+                                    <td class="p-2 text-slate-400 text-[10px] truncate max-w-[260px]" title="${f.path}">${f.path}</td>
+                                    <td class="p-2">${f.size_kb} KB</td>
+                                    <td class="p-2 text-cyan-300">${f.modified_time}</td>
+                                    <td class="p-2 text-slate-400 text-[10px]">${hashShort}</td>
+                                </tr>
+                            `;
+                        });
+                    } else {
+                        html += `<tr><td colspan="5" class="p-3 text-center text-emerald-400">Direktori AppData &amp; Temp bersih. Tidak ada binary mencurigakan dalam kurun 48 jam terakhir.</td></tr>`;
+                    }
+                    html += `</tbody></table></div>`;
+                    out.innerHTML = html;
+                }
+            } catch (err) {
+                if (out) out.innerHTML = `<div class="text-rose-400">Gagal memindai AppData: ${err}</div>`;
+            } finally {
+                if (btn) btn.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i> Pindai AppData/Temp`;
+            }
+        }
+
+        async function checkVssNow() {
+            const out = document.getElementById('dfir-toolbox-output');
+            const btn = document.getElementById('btn-check-vss');
+            if (btn) btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> MEMERIKSA...`;
+            if (out) {
+                out.classList.remove('hidden');
+                out.innerHTML = `<div class="text-emerald-300"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Memeriksa status Volume Shadow Copy Service...</div>`;
+            }
+            try {
+                const res = await fetch('/api/vss/status');
+                const data = await res.json();
+                if (out) {
+                    let snapListHtml = "";
+                    if (data.snapshots && data.snapshots.length > 0) {
+                        snapListHtml = `<div class="space-y-1.5 mt-2">` + data.snapshots.map(s => `
+                            <div class="p-2 rounded bg-slate-900 border border-slate-700 flex items-center justify-between">
+                                <div>
+                                    <span class="text-emerald-400 font-bold">${s.volume || 'Volume C:'}</span> &mdash;
+                                    <span class="text-slate-300">${s.creation_time || 'Timestamp N/A'}</span>
+                                </div>
+                                <span class="text-[10px] text-slate-500 font-mono">${s.shadow_id || ''}</span>
+                            </div>
+                        `).join('') + `</div>`;
+                    } else {
+                        snapListHtml = `<div class="p-3 bg-slate-900/60 rounded border border-slate-800 text-slate-400 text-xs">
+                            Tidak ada snapshot disk cadangan yang ditemukan secara otomatis. ${data.admin_notice || ''}
+                        </div>`;
+                    }
+
+                    out.innerHTML = `
+                        <div class="flex items-center justify-between pb-2 border-b border-slate-700">
+                            <span class="text-emerald-400 font-bold flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left"></i> STATUS VOLUME SHADOW COPY (VSS) RECOVERY</span>
+                            <button onclick="document.getElementById('dfir-toolbox-output').classList.add('hidden')" class="text-slate-400 hover:text-white cursor-pointer">&times; Tutup</button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div class="p-2.5 bg-slate-900 rounded border border-slate-800">
+                                <span class="text-slate-400 text-[10px]">STATUS SERVICE WINDOWS VSS:</span>
+                                <div class="text-sm font-bold text-white mt-1">${data.vss_service}</div>
+                            </div>
+                            <div class="p-2.5 bg-slate-900 rounded border border-slate-800">
+                                <span class="text-slate-400 text-[10px]">SNAPSHOT CADANGAN TERDETEKSI:</span>
+                                <div class="text-sm font-bold text-emerald-400 mt-1">${data.snapshots_count} Snapshot</div>
+                            </div>
+                        </div>
+                        ${snapListHtml}
+                        <div class="text-[10px] text-slate-400 mt-2"><i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i>${data.recovery_guidance}</div>
+                    `;
+                }
+            } catch (err) {
+                if (out) out.innerHTML = `<div class="text-rose-400">Gagal memeriksa VSS: ${err}</div>`;
+            } finally {
+                if (btn) btn.innerHTML = `<i class="fa-solid fa-database"></i> Cek Snapshot VSS`;
+            }
+        }
+
+
+        async function loadTimelineNow() {
+            const out = document.getElementById('dfir-toolbox-output');
+            if (out) {
+                out.classList.remove('hidden');
+                out.innerHTML = `<div class="text-cyan-300"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Menyusun garis waktu kronologis insiden forensik...</div>`;
+            }
+            try {
+                const res = await fetch('/api/incident_timeline');
+                const data = await res.json();
+                if (out) {
+                    let html = `
+                        <div class="flex items-center justify-between pb-2 border-b border-slate-700">
+                            <span class="text-cyan-400 font-bold flex items-center gap-2"><i class="fa-solid fa-timeline"></i> REKONSTRUKSI GARIS WAKTU INSIDEN FORENSIK (${data.total_events} Event)</span>
+                            <div class="flex items-center gap-2">
+                                <a href="/api/export_timeline_html" target="_blank" class="px-2.5 py-1 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-bold rounded-md text-[10px] transition"><i class="fa-solid fa-print mr-1"></i> Cetak Laporan</a>
+                                <button onclick="document.getElementById('dfir-toolbox-output').classList.add('hidden')" class="text-slate-400 hover:text-white cursor-pointer">&times; Tutup</button>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto max-h-60 overflow-y-auto">
+                            <table class="w-full text-left text-xs border-collapse font-mono">
+                                <thead class="bg-slate-900 text-slate-400 text-[10px]">
+                                    <tr>
+                                        <th class="p-2">WAKTU (TIMESTAMP)</th>
+                                        <th class="p-2">SUMBER SUBSISTEM</th>
+                                        <th class="p-2">TIPE PERISTIWA</th>
+                                        <th class="p-2">URAIAN KEJADIAN</th>
+                                        <th class="p-2 text-right">TINGKAT</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800 text-[11px]">
+                    `;
+                    (data.events || []).forEach(ev => {
+                        const isAlert = ev.severity in ['KRITIS', 'TINGGI'];
+                        html += `
+                            <tr class="${isAlert ? 'bg-rose-950/20 text-rose-300' : 'hover:bg-slate-800/40 text-slate-300'}">
+                                <td class="p-2 font-bold text-white whitespace-nowrap">${ev.timestamp}</td>
+                                <td class="p-2"><span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-slate-800 border border-slate-700 text-cyan-300">${ev.source}</span></td>
+                                <td class="p-2 font-bold text-white">${ev.event_type}</td>
+                                <td class="p-2 text-slate-300">${ev.description}</td>
+                                <td class="p-2 text-right"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isAlert ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'}">${ev.severity}</span></td>
+                            </tr>
+                        `;
+                    });
+                    html += `</tbody></table></div>`;
+                    out.innerHTML = html;
+                }
+            } catch (err) {
+                if (out) out.innerHTML = `<div class="text-rose-400">Gagal memuat timeline: ${err}</div>`;
+            }
+        }
+
+        async function toggleShield() {
+            try {
+                await fetch('/api/shield/toggle', { method: 'POST' });
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal mengubah mode perisai: " + err);
+            }
+        }
+
+        async function resetShield() {
+            try {
+                await fetch('/api/shield/reset', { method: 'POST' });
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal reset: " + err);
+            }
+        }
+
+        async function triggerTestAttack() {
+            try {
+                const res = await fetch('/api/test/attack', { method: 'POST' });
+                const data = await res.json();
+                console.log("Attack test:", data);
+                // Poll quickly for 3 seconds to catch the intercept event
+                for (let i = 0; i < 6; i++) {
+                    setTimeout(fetchTelemetry, i * 400);
+                }
+            } catch (err) {
+                alert("Gagal memicu uji serangan: " + err);
+            }
+        }
+
+        async function lockVault() {
+            const pass = document.getElementById('vault-passphrase').value;
+            try {
+                const res = await fetch('/api/vault/lock', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ passphrase: pass })
+                });
+                const data = await res.json();
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal mengunci vault: " + err);
+            }
+        }
+
+        async function unlockVault() {
+            const pass = document.getElementById('vault-passphrase').value;
+            try {
+                const res = await fetch('/api/vault/unlock', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ passphrase: pass })
+                });
+                const data = await res.json();
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal membuka vault: " + err);
+            }
+        }
+
+        async function restoreOriginals() {
+            try {
+                const res = await fetch('/api/test/restore_originals', { method: 'POST' });
+                const data = await res.json();
+                alert(data.message);
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal memulihkan dokumen asli: " + err);
+            }
+        }
+
+        async function restoreRansomwareFile(filename) {
+            try {
+                const res = await fetch('/api/shield/restore_ransomware', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ filename: filename })
+                });
+                const data = await res.json();
+                alert(data.message);
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal memulihkan file: " + err);
+            }
+        }
+
+        async function restoreAllRansomwareFiles() {
+            if (!confirm("Pulihkan dan dekripsi SELURUH dokumen yang terkunci ransomware (.LOCKED_PUSSIBERAD)?")) return;
+            try {
+                const res = await fetch('/api/shield/restore_ransomware', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                const data = await res.json();
+                alert(data.message);
+                fetchTelemetry();
+            } catch (err) {
+                alert("Gagal memulihkan dokumen: " + err);
+            }
+        }
+
+        async function changeWatchDirectory(customPath) {
+            const pathVal = customPath || document.getElementById('watch-dir-input').value.trim();
+            if (!pathVal) return alert("Masukkan path folder!");
+            try {
+                const res = await fetch('/api/shield/set_watch_dir', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ watch_dir: pathVal })
+                });
+                const data = await res.json();
+                if (data.status === 'success') {
+                    alert(data.message);
+                    fetchTelemetry();
+                } else {
+                    alert("Error: " + data.message);
+                }
+            } catch (err) {
+                alert("Gagal mengubah folder proteksi: " + err);
+            }
+        }
+
+        let currentShieldParentDir = "";
+
+        function openShieldSubdir(subname) {
+            const currentDir = (document.getElementById('folder-path-display').innerText || '').replace(/\\/g, '/').replace(/\/+$/, '');
+            const newPath = currentDir + '/' + subname;
+            const inputEl = document.getElementById('watch-dir-input');
+            if (inputEl) inputEl.value = newPath;
+            changeWatchDirectory(newPath);
+        }
+
+        function navigateShieldParent() {
+            if (currentShieldParentDir) {
+                const cleanParent = currentShieldParentDir.replace(/\\/g, '/');
+                const inputEl = document.getElementById('watch-dir-input');
+                if (inputEl) inputEl.value = cleanParent;
+                changeWatchDirectory(cleanParent);
+            } else {
+                alert("Sudah berada di direktori paling atas (Root).");
+            }
+        }
+
+        function setWatchPreset(preset) {
+            let targetPath = '';
+            if (preset === 'SANDBOX') {
+                targetPath = 'DEFAULT_SANDBOX';
+            } else if (preset === 'DESKTOP') {
+                targetPath = '%USERPROFILE%/Desktop';
+            } else if (preset === 'DOCUMENTS') {
+                targetPath = '%USERPROFILE%/Documents';
+            } else if (preset === 'DOWNLOADS') {
+                targetPath = '%USERPROFILE%/Downloads';
+            }
+            document.getElementById('watch-dir-input').value = targetPath;
+            changeWatchDirectory(targetPath);
+        }
+
+        // Initial poll and recurring poll every 1.5 seconds
+        fetchTelemetry();
+        setInterval(fetchTelemetry, 1500);
+    </script>
+</body>
+</html>

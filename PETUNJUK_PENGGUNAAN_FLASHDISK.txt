@@ -1,0 +1,76 @@
+================================================================================
+     PAKET SISTEM PENANGKAL SIBER PORTABLE // PUSSIBERAD HACKATHON 2026
+================================================================================
+Rancang Bangun : Sovian (@siput-bersenjata)
+Repositori     : https://github.com/siput-bersenjata
+Klasifikasi    : Alat Pertahanan Siber Mandiri (Zero-Dependency USB Package)
+Hak Cipta      : Hak Cipta (c) 2026 Sovian. Proprietary Defensive Toolset.
+Watermark      : SHA256-AUTH-SOVIAN-SIPUT-BERSENJATA-PUSSIBERAD-2026
+================================================================================
+
+Folder ini berisi 100% SISTEM PENANGKAL yang siap dipindahkan ke Flashdisk.
+TIDAK MENGANDUNG FILE SERANGAN SAMA SEKALI.
+
+--------------------------------------------------------------------------------
+CARA MEMINDAHKAN KE FLASHDISK:
+--------------------------------------------------------------------------------
+1. Colokkan Flashdisk Anda ke komputer.
+2. Copy seluruh isi folder "PAKET_FLASHDISK_SISTEM_PENANGKAL" ini ke Flashdisk.
+3. Cabut Flashdisk, lalu tancapkan ke laptop/komputer mana pun (misal laptop panitia).
+4. Komputer target TIDAK PERLU install Python atau library tambahan!
+
+--------------------------------------------------------------------------------
+CARA PALING MUDAH UNTUK PRAJURIT (CUKUP 1 KALI KLIK - ALL IN ONE):
+--------------------------------------------------------------------------------
+Begitu Flashdisk dicolokkan ke laptop/komputer mana saja, prajurit cukup:
+👉 KLIK 2x file: "EKSEKUSI_PENANGKALAN_TOTAL_SATU_KLIK.bat"
+   (atau klik: "AKTIFKAN_PERISAI_PENANGKAL_KARTIKA.exe" / "KLIK_INI_UNTUK_MENGAMANKAN_KOMPUTER.bat")
+
+Di Dashboard Web (http://127.0.0.1:5001), prajurit juga dapat menekan tombol:
+👉 [🛡️ TANGKIS TOTAL SEMUA ANCAMAN (ONE-CLICK COMPLETE DEFENSE)]
+   yang secara otomatis mengeksekusi ke-12 fitur pertahanan siber sekaligus dalam 1 kali klik!
+
+Selesai! Tidak perlu install apa pun, tidak perlu buka program-program lain!
+Sistem Pertahanan Gabungan (Dual-Engine) langsung aktif secara otomatis:
+
+1. [SKENARIO B - RADAR MEMORI SENTINEL & DFIR SUITE]:
+   - Otomatis memindai RAM sistem mencari proses siluman yang sembunyi di background.
+   - Detektor Masquerading Proses Sistem (Fitur 12: svchost/explorer palsu).
+   - Mendeteksi koneksi jaringan keluar ke C2 (Port 8888) dan autorun Windows.
+   - Deteksi Pencurian Cookie & Session Hijacking (MITRE T1539): Mendeteksi infostealer
+     yang mencuri token sesi browser (Kemhan SSO, TNI Webmail, E-Office Kodam) dan
+     merekomendasikan pencabutan token (session revoke) seketika!
+   - Prajurit cukup klik tombol merah: [⚡ LUMPUHKAN ANCAMAN BACKGROUND]!
+
+2. [SKENARIO A - CANARY SHIELD INTERCEPTOR]:
+   - Otomatis memasang ranjau umpan Canary Trap di folder dokumen operasi.
+   - Jika penyerang dari laptop C2 menekan "Kunci Semua" (Ransomware Attack),
+     sistem langsung menangkalnya dalam kecepatan sub-milidetik (< 38 ms),
+     mematikan proses penyerang, dan memulihkan berkas seketika!
+
+3. [SOVEREIGN MILITARY CRYPTO-VAULT]:
+   - Kotak brankas enkripsi tingkat militer AES-256-GCM berpassphrase komando.
+
+4. [KOTAK ALAT DFIR LAPANGAN FLASHDISK (TERINTEGRASI DI DASHBOARD)]:
+   - [Fitur 11] Pembersih Kunci Registri Persistensi: Hapus autorun berbahaya dengan 1-klik.
+   - [Fitur 14] Detektor Volatile Dropper: Pindai binary & DLL baru (<48 jam) di AppData & Temp.
+   - [Fitur 15] Disaster Recovery VSS: Cek ketersediaan Volume Shadow Copy Windows.
+   - [Fitur 19] Audit Nirkabel / Wi-Fi: Deteksi sambungan hotspot HP liar & bypass perimeter.
+   - [Fitur 20] Garis Waktu Insiden & Berita Acara: Rekonstruksi kronologis kejadian + tombol
+                 Cetak Berita Acara Resmi (Format HTML siap cetak/tanda tangan).
+
+5. [ALAT BANTU MANDIRI DI ROOT FLASHDISK]:
+   - "SANISASI_DAN_IMUNISASI_FLASHDISK.bat" (Fitur 16):
+     Klik ini untuk membersihkan virus shortcut (.lnk) dari PC korban dan imunisasi autorun.inf.
+   - "CEK_DAN_PULIHKAN_SHADOW_COPY_VSS.bat" (Fitur 15):
+     Cek cepat snapshot cadangan Windows dari Command Line.
+
+6. Untuk memasang Ekstensi Browser Anti-Disinformasi (Kategori 03):
+   -> Buka Google Chrome / Edge -> Masuk ke chrome://extensions/
+   -> Aktifkan "Developer Mode" di pojok kanan atas
+   -> Klik "Load Unpacked", lalu pilih folder: 03_Cognitive_Defense_Browser_Plugin
+
+================================================================================
+PUSAT SIBER TNI ANGKATAN DARAT // KARTIKA CYBER HACKATHON 2026
+Pengembang: Sovian (@siput-bersenjata) - https://github.com/siput-bersenjata
+================================================================================

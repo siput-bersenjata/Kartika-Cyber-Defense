@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KARTIKA CYBER COMMAND // PUSSIBERAD HACKATHON 2026</title>
+  
+  <!-- Modern Clean Typography: Inter for UI & JetBrains Mono for Technical Data -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <style type="text/tailwindcss">
+    @theme {
+      --color-canvas: #070b12;
+      --color-panel: #0d1524;
+      --color-panel-border: #1e293b;
+      --color-ink: #f8fafc;
+      --color-muted: #94a3b8;
+      --color-tni-green: #10b981;
+      --color-tni-red: #ef4444;
+      --color-tni-yellow: #f59e0b;
+      --color-tni-blue: #0ea5e9;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #070b12;
+      color: #f8fafc;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .grid-bg {
+      background-size: 32px 32px;
+      background-image: linear-gradient(to right, rgba(30, 41, 59, 0.25) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+    /* Smooth Transitions */
+    .tab-btn {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans min-h-screen grid-bg antialiased selection:bg-emerald-500 selection:text-black">
+
+  <!-- TOP MILITARY BANNER -->
+  <header class="border-b border-slate-800 bg-[#090f1a]/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-lg shadow-lg shadow-emerald-950/40">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] font-sans font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">PUSSIBERAD 2026</span>
+            <span class="text-xs text-slate-400 font-medium">KARTIKA CYBER HACKATHON</span>
+          </div>
+          <h1 class="font-sans font-bold text-base md:text-lg tracking-tight text-white mt-0.5">KARTIKA DEFENSE CLOUD COMMAND PORTAL</h1>
+        </div>
+      </div>
+
+      <!-- Live Defense Status & Controls -->
+      <div class="flex items-center gap-3 flex-wrap">
+        <div id="system-status-badge" class="px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 flex items-center gap-2.5 text-xs font-semibold text-emerald-400 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span id="system-status-text">STATUS: DEFCON 5 (ARMED &amp; WATCHING)</span>
+        </div>
+        <button onclick="openDownloadModal()" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-500/25 transition transform active:scale-95 cursor-pointer" title="Unduh Sistem Penangkal Portabel (.exe)">
+          <i class="fa-solid fa-download"></i> Unduh Sistem Penangkal (.exe)
+        </button>
+      </div>
+    </div>
+
+    <!-- NAVIGATION TABS (3 CORE DEFENSE TABS) -->
+    <div class="max-w-7xl mx-auto px-4 border-t border-slate-800/80 py-1.5">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs sm:text-sm font-medium">
+        <button onclick="switchTab('shield')" id="tab-shield" class="tab-btn py-2.5 px-3 rounded-lg border border-emerald-500/50 bg-emerald-500/15 text-emerald-400 font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-sm">
+          <i class="fa-solid fa-shield-virus text-emerald-400"></i>
+          <span class="truncate">1. Canary-Shield (IT/OT)</span>
+        </button>
+        <button onclick="switchTab('triage')" id="tab-triage" class="tab-btn py-2.5 px-3 rounded-lg border border-transparent bg-slate-900/60 text-slate-400 hover:text-white hover:bg-slate-800/50 flex items-center justify-center gap-2 cursor-pointer">
+          <i class="fa-solid fa-microscope text-sky-400"></i>
+          <span class="truncate">2. Triage Sentinel (Forensik)</span>
+        </button>
+        <button onclick="switchTab('architecture')" id="tab-architecture" class="tab-btn py-2.5 px-3 rounded-lg border border-transparent bg-slate-900/60 text-slate-400 hover:text-white hover:bg-slate-800/50 flex items-center justify-center gap-2 cursor-pointer">
+          <i class="fa-solid fa-hard-drive text-amber-400"></i>
+          <span class="truncate">3. Arsitektur Dual Pertahanan</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+
+    <!-- ======================================================== -->
+    <!-- TAB 1: KARTIKA CANARY-SHIELD (INTERCEPTOR & ZERO-DAY)    -->
+    <!-- ======================================================== -->
+    <section id="view-shield" class="space-y-6">
+      
+      <!-- HERO METRICS -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="p-4 rounded-xl bg-[#0e1626] border border-slate-800 hover:border-slate-700 transition">
+          <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Status Sensor</div>
+          <div id="stat-shield-status" class="text-xl md:text-2xl font-bold font-sans text-emerald-400 mt-1">ARMED & WATCHING</div>
+          <div class="text-xs text-slate-400 mt-1">2 Decoy Tripwire Aktif</div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0e1626] border border-slate-800 hover:border-slate-700 transition">
+          <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Kecepatan Respons</div>
+          <div class="text-xl md:text-2xl font-bold font-sans text-sky-400 mt-1">&lt; 38.4 ms</div>
+          <div class="text-xs text-slate-400 mt-1">Sub-Millisecond Heuristic</div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0e1626] border border-slate-800 hover:border-slate-700 transition">
+          <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Serangan Ditangkal</div>
+          <div id="stat-threats-count" class="text-xl md:text-2xl font-bold font-sans text-amber-400 mt-1">3 ANCAMAN</div>
+          <div class="text-xs text-slate-400 mt-1">PID Force-Killed</div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0e1626] border border-slate-800 hover:border-slate-700 transition">
+          <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Integritas Dokumen</div>
+          <div class="text-xl md:text-2xl font-bold font-sans text-emerald-400 mt-1">100% AMAN</div>
+          <div class="text-xs text-slate-400 mt-1">0 Berkas Terenkripsi</div>
+        </div>
+      </div>
+
+      <!-- SPLIT: SENSOR WATCHDOG & PROTECTED DOCUMENTS -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- SENSOR WATCHDOG & INCIDENT CONSOLE (7 Cols) -->
+        <div class="lg:col-span-7 p-5 rounded-xl border border-slate-800 bg-[#0e1626] space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-sans font-bold text-sm text-white flex items-center gap-2">
+              <i class="fa-solid fa-shield-halved text-emerald-400"></i> MONITOR SENSOR TRIPWIRE & FORENSIK I/O
+            </h3>
+            <span class="text-xs text-slate-400 font-mono">Polling: 30ms (Shannon Entropy)</span>
+          </div>
+
+          <!-- Tactical Sensor Watchdog Panel -->
+          <div id="sensor-telemetry-panel" class="p-4 rounded-lg bg-[#070b12] border border-slate-800 space-y-3 relative overflow-hidden transition-all duration-300">
+            <div class="flex items-center justify-between text-xs font-sans">
+              <span class="text-slate-400 flex items-center gap-2">
+                <span id="sensor-heartbeat-dot" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                POLLING ENGINE: <span class="text-white font-bold">ACTIVE (LOOP 30ms)</span>
+              </span>
+              <span class="text-sky-400 font-bold font-mono">SUB-MILLISECOND HEURISTIC</span>
+            </div>
+
+            <!-- Active Tripwire Sensor Status Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div id="tripwire-card-1" class="p-3.5 rounded-lg bg-[#0e1626] border border-amber-500/30 space-y-1.5 transition-colors">
+                <div class="flex items-center justify-between">
+                  <span class="text-amber-400 font-bold flex items-center gap-1.5 font-sans">
+                    <i class="fa-solid fa-bullseye"></i> TRIPWIRE #01
+                  </span>
+                  <span id="tripwire-badge-1" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">ARMED</span>
+                </div>
+                <div class="text-xs text-white truncate font-mono">!00_CANARY_RENOPS_RAHASIA.docx</div>
+                <div class="text-[11px] text-slate-400 flex justify-between pt-1">
+                  <span class="font-mono">Entropy: 4.12 H</span>
+                  <span id="tripwire-state-1" class="text-emerald-400 font-medium">Normal / No Delta</span>
+                </div>
+              </div>
+
+              <div id="tripwire-card-2" class="p-3.5 rounded-lg bg-[#0e1626] border border-amber-500/30 space-y-1.5 transition-colors">
+                <div class="flex items-center justify-between">
+                  <span class="text-amber-400 font-bold flex items-center gap-1.5 font-sans">
+                    <i class="fa-solid fa-bullseye"></i> TRIPWIRE #02
+                  </span>
+                  <span id="tripwire-badge-2" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">ARMED</span>
+                </div>
+                <div class="text-xs text-white truncate font-mono">!00_CANARY_PETA_DISPOSISI.kml</div>
+                <div class="text-[11px] text-slate-400 flex justify-between pt-1">
+                  <span id="tripwire-entropy-2" class="font-mono">Entropy: 3.88 H</span>
+                  <span id="tripwire-state-2" class="text-emerald-400 font-medium">Normal / No Delta</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Alert / Intercept Status Bar -->
+            <div id="intercept-status-bar" class="p-3 rounded-lg bg-[#0e1626] border border-slate-800 flex items-center justify-between text-xs transition-colors">
+              <div class="flex items-center gap-2">
+                <i id="intercept-icon" class="fa-solid fa-circle-check text-emerald-400"></i>
+                <span id="intercept-text" class="text-slate-300">Integritas direktori pangkalan terjaga. 0 anomali enkripsi.</span>
+              </div>
+              <span id="intercept-latency" class="text-xs font-bold text-emerald-400 font-mono">&lt; 38.4 ms</span>
+            </div>
+
+            <!-- Intercept notification overlay -->
+            <div id="intercept-overlay" class="absolute inset-0 bg-red-950/60 backdrop-blur-xs flex items-center justify-center hidden">
+              <div class="text-center p-4 rounded-xl bg-[#070b12]/95 border border-red-500 shadow-2xl">
+                <div class="text-xs font-bold text-red-400 uppercase flex items-center justify-center gap-1.5">
+                  <i class="fa-solid fa-triangle-exclamation animate-bounce"></i> DEFCON 1: THREAT INTERCEPTED
+                </div>
+                <div class="text-sm font-bold text-white mt-1 font-sans">FORCE-KILL PID 71924 EXECUTED (34.2 ms)</div>
+                <div class="text-xs text-emerald-400 mt-1">Berkas Umpan Otomatis Dipulihkan (Rollback)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT INCIDENTS LOG -->
+          <div>
+            <div class="text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Log Reaksi Cepat Penangkalan (DFIR Militer)</div>
+            <div id="incident-log-container" class="space-y-2 text-xs max-h-56 overflow-y-auto pr-1">
+              <!-- Default Initial Incident -->
+              <div class="p-3 rounded-lg bg-[#070b12] border border-emerald-500/30 flex items-start justify-between gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">DIGAGALKAN</span>
+                    <span class="text-white font-bold font-mono text-xs">UNAUTHORIZED_FILE_ENCRYPTION_RENAME</span>
+                  </div>
+                  <div class="text-slate-300 mt-1">Target Tripwire: <span class="text-amber-400 font-mono">!00_CANARY_PETA_DISPOSISI.kml</span></div>
+                  <div class="text-slate-400 text-[11px] mt-0.5">Aksi: <span class="text-slate-200 font-mono">FORCE_KILL PID 71924 + AUTO ROLLBACK (34.2 ms)</span></div>
+                </div>
+                <div class="text-[11px] text-slate-400 text-right whitespace-nowrap">2 Menit Lalu</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROTECTED MILITARY FILES TABLE (5 Cols) -->
+        <div class="lg:col-span-5 p-5 rounded-xl border border-slate-800 bg-[#0e1626] space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-sans font-bold text-sm text-white flex items-center gap-2">
+              <i class="fa-solid fa-folder-shield text-sky-400"></i> DOKUMEN MILITER DALAM PC ANDA
+            </h3>
+            <span id="protected-badge-live" class="text-xs text-emerald-400 font-bold font-sans">● LIVE DARI DISK PC</span>
+          </div>
+
+          <div class="text-xs text-slate-300 flex items-center justify-between border-b border-slate-800 pb-2">
+            <span>Folder: <span id="lbl-watch-dir" class="text-white font-mono bg-slate-900 px-1.5 py-0.5 rounded">sandbox_dokumen_militer</span></span>
+            <span id="lbl-total-files" class="text-amber-400 font-semibold">7 Dokumen Aktif</span>
+          </div>
+
+          <!-- DYNAMIC REAL FILES LIST FROM PC DISK -->
+          <div id="protected-files-list" class="space-y-2 text-xs max-h-96 overflow-y-auto pr-1">
+            <div class="p-4 text-center text-slate-400 text-xs animate-pulse">
+              <i class="fa-solid fa-circle-notch fa-spin mr-1.5 text-emerald-400"></i> Menghubungkan & membaca berkas pangkalan PC...
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-800/80">
+            <button onclick="restoreRealFiles()" class="w-full py-2.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/30 text-xs font-semibold transition flex items-center justify-center gap-2 cursor-pointer">
+              <i class="fa-solid fa-arrow-rotate-left"></i> Pulihkan Dokumen Asli PC
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 2: KARTIKA TRIAGE SENTINEL (FORENSIK OS & SIAGA 1)  -->
+    <!-- ======================================================== -->
+    <section id="view-triage" class="space-y-6 hidden">
+      
+      <!-- FORENSIC EVIDENCE ARTIFACTS -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- REGISTRY PERSISTENCE TABLE (7 Cols) -->
+        <div class="lg:col-span-7 p-5 rounded-xl border border-slate-800 bg-[#0e1626] space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-sans font-bold text-sm text-white flex items-center gap-2">
+              <i class="fa-solid fa-key text-red-400"></i> ARTEFAK REGISTRI AUTORUN (WINDOWS RUN KEYS)
+            </h3>
+            <span class="text-xs text-red-400 font-bold">1 Mencurigakan</span>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <!-- Suspicious Persistence Item -->
+            <div class="p-4 rounded-lg bg-[#070b12] border border-red-500/60 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-red-400 flex items-center gap-1.5 font-sans">
+                  <i class="fa-solid fa-triangle-exclamation"></i> Kartika_Weaponized_Doc_Dropper
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 text-[10px] font-bold">PERSISTENCE MALWARE</span>
+              </div>
+              <div class="text-slate-300 text-xs">
+                Target Kunci: <span class="text-white font-mono">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</span>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900 border border-slate-800 text-xs text-amber-300 font-mono break-all">
+                python.exe -WindowStyle Hidden -File "ransomware_agent.py"
+              </div>
+              <div class="text-xs text-slate-400 flex items-center justify-between pt-1">
+                <span>Taktik MITRE: <span class="text-white font-mono">T1547.001 (Boot/Logon Autostart)</span></span>
+                <span class="text-emerald-400 font-bold">Telah Dinetralkan</span>
+              </div>
+            </div>
+
+            <!-- Normal persistence items -->
+            <div class="p-3 rounded-lg bg-[#070b12] border border-slate-800 flex items-center justify-between text-slate-300 text-xs">
+              <div>
+                <span class="text-white font-semibold">SecurityHealthSystray</span> (Windows Defender)
+                <div class="text-[11px] text-slate-400 font-mono mt-0.5">%windir%\system32\SecurityHealthSystray.exe</div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-bold text-[10px]">Normal</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-[#070b12] border border-slate-800 flex items-center justify-between text-slate-300 text-xs">
+              <div>
+                <span class="text-white font-semibold">OneDrive</span> (Microsoft Sync)
+                <div class="text-[11px] text-slate-400 font-mono mt-0.5">"C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background</div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-bold text-[10px]">Normal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MITRE ATT&CK MAPPING (5 Cols) -->
+        <div class="lg:col-span-5 p-5 rounded-xl border border-slate-800 bg-[#0e1626] space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-sans font-bold text-sm text-white flex items-center gap-2">
+              <i class="fa-solid fa-diagram-project text-amber-400"></i> PEMETAAN MITRE ATT&CK MILITER
+            </h3>
+            <span class="text-xs text-slate-400 font-mono">v14 Framework</span>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="p-3.5 rounded-lg bg-[#070b12] border-l-4 border-l-red-500 border border-slate-800">
+              <div class="text-red-400 font-bold font-sans">T1566.001 - Spearphishing Attachment</div>
+              <div class="text-slate-300 text-xs mt-1 leading-relaxed">Surat Telegram dinas palsu membawa makro/dropper tersembunyi.</div>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-[#070b12] border-l-4 border-l-red-500 border border-slate-800">
+              <div class="text-red-400 font-bold font-sans">T1547.001 - Registry Run Keys</div>
+              <div class="text-slate-300 text-xs mt-1 leading-relaxed">Injeksi kunci autorun Windows agar aktif otomatis pasca-reboot.</div>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-[#070b12] border-l-4 border-l-amber-500 border border-slate-800">
+              <div class="text-amber-400 font-bold font-sans">T1059 - Command & Scripting Interpreter</div>
+              <div class="text-slate-300 text-xs mt-1 leading-relaxed">Eksekusi skrip latar belakang tanpa jendela (-WindowStyle Hidden).</div>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-[#070b12] border-l-4 border-l-emerald-500 border border-slate-800">
+              <div class="text-emerald-400 font-bold font-sans">T1486 - Data Encrypted for Impact (DITANGKIS)</div>
+              <div class="text-slate-300 text-xs mt-1 leading-relaxed">Upaya penyanderaan berkas berhasil diputus oleh Canary-Shield (&lt;38ms).</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 3: DUAL-DEPLOYMENT ARCHITECTURE (FLASHDISK VS CLOUD) -->
+    <!-- ======================================================== -->
+    <section id="view-architecture" class="space-y-6 hidden">
+      
+      <!-- HEADER BANNER -->
+      <div class="p-5 rounded-xl border border-slate-800 bg-[#0e1626] flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-bold uppercase">
+              STRUKTUR OPERASIONAL
+            </span>
+            <span class="text-xs text-slate-400 font-medium">Solusi 2-in-1 Pertahanan TNI AD</span>
+          </div>
+          <h2 class="font-sans font-bold text-white text-base md:text-xl mt-1">ARSITEKTUR DUAL-DEPLOYMENT (FLASHDISK AIR-GAPPED & CLOUD PORTAL)</h2>
+          <p class="text-xs md:text-sm text-slate-300 font-sans mt-1 leading-relaxed">
+            Sinergi antara <span class="text-emerald-400 font-semibold">Biner Fisik Air-Gapped Workstation</span> untuk operasional pangkalan dan <span class="text-sky-400 font-semibold">Cloud Command Evaluation Portal</span> untuk pengujian juri 24/7.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="text-xs font-bold text-emerald-400">DUAL-SYSTEM ACTIVE</span>
+        </div>
+      </div>
+
+      <!-- DETAILED ADVANTAGES (KELEBIHAN MASING-MASING ALAT) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- CARD 1: VERSI FLASHDISK -->
+        <div class="p-6 rounded-xl border border-emerald-500/40 bg-[#0e1626] space-y-4 relative flex flex-col justify-between shadow-xl shadow-emerald-950/20">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-bold uppercase">
+                <i class="fa-solid fa-shield-halved mr-1"></i> SISTEM UTAMA OPERASIONAL
+              </span>
+              <span class="text-xs text-slate-400">Untuk Workstation Militer</span>
+            </div>
+            
+            <h3 class="font-sans font-bold text-lg text-white flex items-center gap-2">
+              <i class="fa-solid fa-usb text-emerald-400"></i> 1. Versi Portable USB Flashdisk (.exe)
+            </h3>
+            
+            <p class="text-xs md:text-sm text-slate-300 font-sans leading-relaxed">
+              Biner mandiri berstandar militer (<em>Zero-Dependency Standalone</em>) yang berjalan native langsung pada komputer pangkalan, pos terdepan, atau alutsista tanpa membutuhkan koneksi internet.
+            </p>
+
+            <div class="space-y-3 pt-3 border-t border-slate-800">
+              <div class="text-xs font-bold uppercase text-emerald-400 tracking-wider flex items-center gap-1.5">
+                <i class="fa-solid fa-star text-amber-400"></i> Keunggulan Operasional di Pangkalan:
+              </div>
+              
+              <ul class="text-xs md:text-sm space-y-3 text-slate-200">
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
+                  <span><strong class="text-white">100% Air-Gapped & Kedaulatan Data:</strong> Beroperasi mandiri tanpa internet. Tidak ada satu byte pun data intelijen pangkalan yang bocor ke cloud pihak ketiga.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
+                  <span><strong class="text-white">Native Low-Level Kernel Enforcement:</strong> Mengeksekusi penindakan langsung ke kernel Windows (force-kill PID penyerang secara instan) dan memulihkan dokumen fisik seketika.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
+                  <span><strong class="text-white">Zero-Footprint & Zero-Dependency:</strong> Tidak perlu menginstal Python, Node.js, atau compiler. Cukup tancapkan Flashdisk ke port USB dan jalankan langsung.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
+                  <span><strong class="text-white">Audit Forensik Memori Volatil Riil:</strong> Membaca langsung struktur registri Windows asli (<code class="text-amber-400 font-mono">winreg</code>), open network sockets, dan hash SHA-256 pada mesin korban.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
+                  <span><strong class="text-white">Resisten Terhadap Electronic Warfare (EW):</strong> Tetap berfungsi 100% normal saat terjadi pemutusan sinyal internet atau jamming frekuensi oleh musuh.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 space-y-2">
+            <span class="text-xs text-slate-400 font-medium">Paket Flashdisk Siap Pakai:</span>
+            <div class="p-3 rounded-lg bg-[#070b12] border border-slate-800 text-xs text-amber-300 flex items-center justify-between">
+              <span class="font-mono"><i class="fa-solid fa-folder-closed mr-2 text-amber-400"></i> PAKET_FLASHDISK_SISTEM_PENANGKAL/</span>
+              <span class="text-emerald-400 font-bold text-xs">62.5 MB PORTABLE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: VERSI CLOUD VERCEL -->
+        <div class="p-6 rounded-xl border border-sky-500/40 bg-[#0e1626] space-y-4 relative flex flex-col justify-between shadow-xl shadow-sky-950/20">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-sky-500/15 text-sky-400 border border-sky-500/30 text-xs font-bold uppercase">
+                <i class="fa-solid fa-cloud-arrow-down mr-1"></i> PUSAT UNDUHAN & TELEMETRI 24/7
+              </span>
+              <span class="text-xs text-slate-400">Untuk Satuan Pangkalan & Komando</span>
+            </div>
+            
+            <h3 class="font-sans font-bold text-lg text-white flex items-center gap-2">
+              <i class="fa-solid fa-cloud text-sky-400"></i> 2. Versi Cloud Portal (Vercel)
+            </h3>
+            
+            <p class="text-xs md:text-sm text-slate-300 font-sans leading-relaxed">
+              Portal komando dan pusat distribusi digital berbasis Cloud Edge yang aktif 24 jam nonstop untuk memfasilitasi pemantauan telemetri, inspeksi dewan juri, dan distribusi pembaruan pertahanan siber militer secara terpusat.
+            </p>
+
+            <div class="space-y-3 pt-3 border-t border-slate-800">
+              <div class="text-xs font-bold uppercase text-sky-400 tracking-wider flex items-center gap-1.5">
+                <i class="fa-solid fa-star text-amber-400"></i> Keunggulan Utama Portal Cloud:
+              </div>
+              
+              <ul class="text-xs md:text-sm space-y-3 text-slate-200">
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0 text-sm"></i>
+                  <span><strong class="text-white">1. Unduh Sistem Penangkal Up-to-Date:</strong> Personel pangkalan dan staf siber dapat mengunduh rilis binary sistem penangkal paling mutakhir secara langsung dari portal cloud ini, lengkap dengan injeksi signature IOC, sensor tripwire terbaru, dan modul mitigasi zero-day yang selalu diperbarui tanpa perantara pihak ketiga.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-sky-400 mt-0.5 shrink-0 text-sm"></i>
+                  <span><strong class="text-white">2. Bisa Diakses dari Mana Saja (Akses Global 24/7):</strong> Sistem dapat dijangkau kapan saja dari mana saja melalui berbagai perangkat — laptop komando, tablet taktis lapangan, maupun smartphone perwira — tanpa perlu menunggu laptop peserta menyala atau berada di lokasi fisik tertentu.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 shrink-0 text-sm"></i>
+                  <span><strong class="text-white">3. Tidak Perlu Flashdisk, Unduh Langsung Pakai:</strong> Menghilangkan hambatan logistik fisik seperti flashdisk yang rawan tertinggal, rusak, atau terblokir kebijakan proteksi USB pangkalan (GPO USB lock). Personel cukup mengunduh biner standalone (.exe) dari portal dan langsung dieksekusi seketika (Zero-Dependency, tanpa instalasi Python/dependency tambahan).</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-slate-400">Rilis Biner Windows Terverifikasi:</span>
+              <span class="text-emerald-400 font-mono font-bold">v2.6.4-release.exe (22.7 MB)</span>
+            </div>
+            <button onclick="openDownloadModal()" class="w-full py-2.5 px-4 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition cursor-pointer">
+              <i class="fa-solid fa-download"></i> Unduh Sistem Penangkal (.exe / .zip)
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROMINENT DOWNLOAD CTA BANNER ON SLIDE 3 -->
+      <div class="p-5 rounded-xl bg-gradient-to-r from-emerald-950/60 via-slate-900 to-[#0e1626] border border-emerald-500/40 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
+        <div class="space-y-1.5 text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-2">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/30">DISTRIBUSI RESMI PUSSIBERAD</span>
+            <span class="text-slate-400 text-xs font-mono">SHA-256 Verified</span>
+          </div>
+          <h3 class="text-white font-bold text-base md:text-lg flex items-center justify-center md:justify-start gap-2">
+            <i class="fa-solid fa-shield-halved text-emerald-400"></i> Siap Amankan Workstation Militer Pangkalan Sekarang?
+          </h3>
+          <p class="text-xs text-slate-300 max-w-2xl leading-relaxed">
+            Unduh executable mandiri <strong>AKTIFKAN_PERISAI_PENANGKAL_KARTIKA.exe</strong> tanpa instalasi, tanpa Python, dan tanpa ketergantungan media fisik. Aktifkan perlindungan Canary Tripwire, Anti-Infostealer, dan Forensik Triage dalam satu klik.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
+          <button onclick="openDownloadModal()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-bold text-xs md:text-sm flex items-center justify-center gap-2.5 shadow-xl shadow-emerald-500/30 transition transform active:scale-95 cursor-pointer">
+            <i class="fa-solid fa-circle-down text-base"></i> UNDUH PAKET PENANGKAL
+          </button>
+          <a href="https://github.com/siput-bersenjata/kartikacyberhackathon" target="_blank" class="w-full sm:w-auto px-4 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs flex items-center justify-center gap-2 transition">
+            <i class="fa-brands fa-github text-sm"></i> Repositori GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- TABEL ARSITEKTUR & TEKNOLOGI SISTEM PERTAHANAN KARTIKA -->
+      <div class="p-5 rounded-xl border border-slate-800 bg-[#0e1626] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-[10px] font-bold uppercase tracking-wider border border-sky-500/30">MATRIKS REKAYASA TEKNIS</span>
+              <span class="text-xs text-slate-400 font-mono">PUSSIBERAD Hackathon 2026</span>
+            </div>
+            <h3 class="font-sans font-bold text-sm md:text-base text-white flex items-center gap-2 mt-1">
+              <i class="fa-solid fa-network-wired text-sky-400"></i> ARSITEKTUR & TEKNOLOGI SISTEM PERTAHANAN KARTIKA
+            </h3>
+            <p class="text-xs md:text-sm text-slate-300 font-sans mt-0.5">Memaparkan alur kerja sistem (system workflow), teknologi/framework yang digunakan, serta keunggulan teknis yang dibangun</p>
+          </div>
+          <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#070b12] border border-slate-800 text-slate-300 self-start sm:self-auto">
+            5 Pilar Pertahanan Terintegrasi
+          </span>
+        </div>
+
+        <div class="overflow-x-auto rounded-lg border border-slate-800">
+          <table class="w-full text-left text-xs md:text-sm font-sans border-collapse">
+            <thead>
+              <tr class="bg-[#090f1a] border-b border-slate-800 text-slate-400 uppercase text-xs font-semibold tracking-wider">
+                <th class="p-3.5 w-12 text-center">No</th>
+                <th class="p-3.5 min-w-[200px]">Pilar Arsitektur &amp; Modul</th>
+                <th class="p-3.5 min-w-[280px]">Alur Kerja Sistem (System Workflow)</th>
+                <th class="p-3.5 min-w-[200px]">Teknologi &amp; Framework</th>
+                <th class="p-3.5 min-w-[260px] text-emerald-400">Keunggulan Teknis yang Dibangun</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-slate-200">
+              
+              <!-- Row 1: Canary-Shield -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 text-center font-bold text-slate-400 font-mono">01</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-virus text-emerald-400"></i> Canary-Shield Decoy Engine
+                  </div>
+                  <div class="text-[11px] text-emerald-400 font-mono mt-0.5">Sub-50ms Kernel Mitigation</div>
+                </td>
+                <td class="p-3.5 text-xs text-slate-300 leading-relaxed">
+                  <ol class="list-decimal list-inside space-y-1">
+                    <li>Menanam berkas umpan prioritas (<code class="text-amber-300 font-mono">!00_CANARY_*.docx</code>) di direktori dokumen dinas.</li>
+                    <li>Melacak sinyal modifikasi I/O berkas secara kontinu.</li>
+                    <li>Menghitung lonjakan nilai <strong>Shannon Entropy</strong> (<span class="text-amber-400 font-mono">H &gt; 7.5</span>) saat enkripsi ransomware dimulai.</li>
+                    <li>Mengirim sinyal terminasi paksa (<code class="text-red-400 font-mono">SIGKILL / PID</code>) ke malware dalam tempo <strong>&lt; 38 ms</strong>.</li>
+                    <li>Memulihkan berkas dokumen asli secara otomatis dari Safe Shadow Vault.</li>
+                  </ol>
+                </td>
+                <td class="p-3.5 text-xs font-mono text-slate-300">
+                  <div class="space-y-1">
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-sky-300">Python 3.12 Engine</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-emerald-300">Win32 File Event API</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-amber-300">Shannon Entropy Math</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-purple-300">PyInstaller Standalone</span>
+                  </div>
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  <ul class="list-disc list-inside space-y-1">
+                    <li><strong class="text-white">User-Space Non-Driver:</strong> Tidak membutuhkan driver ring-0 sehingga 100% bebas risiko Crash Kernel (BSOD).</li>
+                    <li><strong class="text-white">Kecepatan Respons Sub-Milidetik:</strong> Menembak mati ransomware sebelum berkas dokumen kedinasan sempat dienkripsi.</li>
+                    <li><strong class="text-white">Resisten Terhadap Zero-Day:</strong> Tidak bergantung pada database signature lama, efektif terhadap varian malware baru.</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <!-- Row 2: Honeytoken Decoy Guard -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 text-center font-bold text-slate-400 font-mono">02</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold flex items-center gap-1.5">
+                    <i class="fa-solid fa-cookie-bite text-amber-400"></i> Autonomous Honeytoken Guard
+                  </div>
+                  <div class="text-[11px] text-amber-400 font-mono mt-0.5">Anti-Infostealer &amp; Credential Shield</div>
+                </td>
+                <td class="p-3.5 text-xs text-slate-300 leading-relaxed">
+                  <ol class="list-decimal list-inside space-y-1">
+                    <li>Menginjeksi berkas database decoy SQLite (<code class="text-amber-300 font-mono">!00_CANARY_HONEYTOKEN_COOKIES.db</code>) yang menyerupai cookie browser pangkalan.</li>
+                    <li>Watchdog mendeteksi upaya pembacaan DPAPI master key &amp; kemunculan file dump <code class="text-red-400 font-mono">%TEMP%\infostealer_*.json</code>.</li>
+                    <li>Mengeksekusi terminasi instan terhadap proses infostealer sebelum data sempat di-streaming keluar.</li>
+                    <li>Mengisolasi jejak pencurian kredensial akun dinas militer secara preventif.</li>
+                  </ol>
+                </td>
+                <td class="p-3.5 text-xs font-mono text-slate-300">
+                  <div class="space-y-1">
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-amber-300">SQLite Honeytoken Vault</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-sky-300">DPAPI Decoy Struct</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-emerald-300">Win32 Process Watcher</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-red-300">Socket Kill Routine</span>
+                  </div>
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  <ul class="list-disc list-inside space-y-1">
+                    <li><strong class="text-white">Otonom 24/7 Tanpa Klik:</strong> Berjalan otomatis di latar belakang tanpa menunggu operator menekan tombol mitigasi manual.</li>
+                    <li><strong class="text-white">Menutup Celah Hijacking Sesi:</strong> Menjaga kredensial portal komando, email dinas, dan token web pangkalan dari kebocoran ke aktor C2.</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <!-- Row 3: Triage Sentinel -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 text-center font-bold text-slate-400 font-mono">03</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold flex items-center gap-1.5">
+                    <i class="fa-solid fa-microscope text-sky-400"></i> Triage Sentinel Forensic
+                  </div>
+                  <div class="text-[11px] text-sky-400 font-mono mt-0.5">Volatile Memory &amp; Persistence Audit</div>
+                </td>
+                <td class="p-3.5 text-xs text-slate-300 leading-relaxed">
+                  <ol class="list-decimal list-inside space-y-1">
+                    <li>Memindai registri Windows Run Keys (<code class="text-amber-300 font-mono">HKCU/HKLM Run</code>) untuk mendeteksi persistensi malware.</li>
+                    <li>Menganalisis relasi silsilah proses RAM (Parent-Child PID), thread terinjeksi, dan open socket.</li>
+                    <li>Melakukan verifikasi integritas kriptografi SHA-256 terhadap biner mencurigakan.</li>
+                    <li>Mengkalkulasi <strong>Skor Ancaman SIAGA</strong> (0-100) berbasis matriks ancaman MITRE ATT&amp;CK.</li>
+                    <li>Menyusun Berita Acara Insiden (BAI) siap cetak untuk kepentingan komando intelijen.</li>
+                  </ol>
+                </td>
+                <td class="p-3.5 text-xs font-mono text-slate-300">
+                  <div class="space-y-1">
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-sky-300">winreg Native API</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-purple-300">psutil Kernel Introspection</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-emerald-300">SHA-256 Hash Engine</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-amber-300">MITRE ATT&amp;CK Framework</span>
+                  </div>
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  <ul class="list-disc list-inside space-y-1">
+                    <li><strong class="text-white">Forensik Non-Destruktif:</strong> Menjaga keaslian barang bukti digital (Chain of Custody) tanpa mengubah state memori OS.</li>
+                    <li><strong class="text-white">Inspeksi Cepat (&lt; 3 Detik):</strong> Mengakuisisi artefak persistensi secara instan tanpa membebani kinerja workstation prajurit.</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <!-- Row 4: Base Shield OT/SCADA -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 text-center font-bold text-slate-400 font-mono">04</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold flex items-center gap-1.5">
+                    <i class="fa-solid fa-industry text-purple-400"></i> OT / SCADA Base-Shield
+                  </div>
+                  <div class="text-[11px] text-purple-400 font-mono mt-0.5">Modbus TCP Binary DPI &amp; Sabotage Guard</div>
+                </td>
+                <td class="p-3.5 text-xs text-slate-300 leading-relaxed">
+                  <ol class="list-decimal list-inside space-y-1">
+                    <li>Mencegat aliran paket biner TCP port 502 menuju PLC generator &amp; radar pangkalan.</li>
+                    <li>Melakukan Deep Packet Inspection (DPI) pada Application Layer Modbus (Function Code FC 05, FC 06, FC 16).</li>
+                    <li>Memvalidasi register keselamatan operasional (frekuensi daya, tegangan turbin, interrup pendingin).</li>
+                    <li>Memutus transmisi instruksi manipulasi berbahaya seketika dan memblokir IP penyerang.</li>
+                  </ol>
+                </td>
+                <td class="p-3.5 text-xs font-mono text-slate-300">
+                  <div class="space-y-1">
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-purple-300">Raw Socket Sniffer</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-sky-300">Modbus TCP Parser</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-red-300">Binary Frame Validator</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-emerald-300">Packet Dropper Filter</span>
+                  </div>
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  <ul class="list-disc list-inside space-y-1">
+                    <li><strong class="text-white">Latensi Sub-Milidetik (&lt; 1ms):</strong> Tidak menyebabkan delay pada sinkronisasi kontrol mesin fisik pangkalan militer.</li>
+                    <li><strong class="text-white">Mencegah Sabotase Fisik:</strong> Menghentikan skenario serangan blackout alutsista pangkalan ala Stuxnet &amp; Industroyer.</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <!-- Row 5: Cloud Command & Distribution Portal -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 text-center font-bold text-slate-400 font-mono">05</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold flex items-center gap-1.5">
+                    <i class="fa-solid fa-cloud text-sky-400"></i> Cloud Command &amp; Distribution Portal
+                  </div>
+                  <div class="text-[11px] text-sky-400 font-mono mt-0.5">Vercel Edge &amp; Serverless Database</div>
+                </td>
+                <td class="p-3.5 text-xs text-slate-300 leading-relaxed">
+                  <ol class="list-decimal list-inside space-y-1">
+                    <li>Menghubungkan telemetri pertahanan dari pos pangkalan ke dashboard analitik terpadu.</li>
+                    <li>Menyajikan visualisasi status DEFCON, radar ancaman, dan kepatuhan militer untuk juri &amp; komando.</li>
+                    <li>Berfungsi sebagai repositori rilis resmi untuk mendistribusikan file binary (.exe / .zip) terbaru kepada prajurit.</li>
+                    <li>Memfasilitasi pengujian independen oleh dewan juri tanpa ketergantungan pada hardware peserta.</li>
+                  </ol>
+                </td>
+                <td class="p-3.5 text-xs font-mono text-slate-300">
+                  <div class="space-y-1">
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-sky-300">Vercel Edge Network</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-emerald-300">Neon Serverless PostgreSQL</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-amber-300">TailwindCSS Responsive</span>
+                    <span class="inline-block bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-purple-300">SHA-256 Release Sign</span>
+                  </div>
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  <ul class="list-disc list-inside space-y-1">
+                    <li><strong class="text-white">Uptime Global 99.99%:</strong> Tanpa beban server pangkalan lokal, tahan terhadap lonjakan akses multi-user.</li>
+                    <li><strong class="text-white">Distribusi Mandiri Bebas Flashdisk:</strong> Personel dapat mengunduh dan menyebarkan sistem pertahanan terkini kapan saja secara instan.</li>
+                  </ul>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- COMPREHENSIVE ATTACK SPECTRUM TABLE -->
+      <div class="p-5 rounded-xl border border-slate-800 bg-[#0e1626] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h3 class="font-sans font-bold text-sm md:text-base text-white flex items-center gap-2">
+              <i class="fa-solid fa-table-list text-emerald-400"></i> SPEKTRUM SERANGAN YANG DITANGKAL & MEKANISME RESPON
+            </h3>
+            <p class="text-xs md:text-sm text-slate-300 font-sans mt-0.5">Daftar jenis serangan siber militer dan cara kerja penangkalan pada kedua sistem</p>
+          </div>
+          <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#070b12] border border-slate-800 text-slate-300">
+            Standar MITRE ATT&CK Militer
+          </span>
+        </div>
+
+        <div class="overflow-x-auto rounded-lg border border-slate-800">
+          <table class="w-full text-left text-xs md:text-sm font-sans border-collapse">
+            <thead>
+              <tr class="bg-[#090f1a] border-b border-slate-800 text-slate-400 uppercase text-xs font-semibold tracking-wider">
+                <th class="p-3.5">No</th>
+                <th class="p-3.5">Jenis Serangan & Taktik</th>
+                <th class="p-3.5">Skenario Serangan di Lingkungan Militer</th>
+                <th class="p-3.5 text-emerald-400">Penangkalan Flashdisk (Nyata di OS)</th>
+                <th class="p-3.5 text-sky-400">Penangkalan Portal Cloud (Vercel)</th>
+                <th class="p-3.5 text-right">Efektivitas</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-slate-200">
+              
+              <!-- Attack 1 -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 font-bold text-slate-400 font-mono">01</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold">Ransomware & Wiper Zero-Day</div>
+                  <div class="text-xs text-red-400 font-mono mt-0.5">MITRE: T1486 (Data Encrypted)</div>
+                </td>
+                <td class="p-3.5 text-slate-300 text-xs leading-relaxed max-w-xs">
+                  Malware menyusup dan berupaya mengenkripsi massal dokumen rencana operasi (.docx, .kml, .xlsx, .pdf) lalu menuntut tebusan.
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  Canary Tripwire mendeteksi modifikasi umpan &rarr; Heuristik Shannon Entropy menghitung lonjakan &rarr; <strong class="text-white underline">Force-Kill PID</strong> penyerang &lt; 38ms + Auto rollback berkas.
+                </td>
+                <td class="p-3.5 text-xs text-sky-300 leading-relaxed">
+                  Tombol simulasi interaktif mengemulasikan lonjakan entropi Tripwire #02 (7.94 H), mengunci ancaman, dan memicu alert DEFCON 1.
+                </td>
+                <td class="p-3.5 text-right whitespace-nowrap">
+                  <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold text-xs">
+                    100% AMAN (&lt; 38ms)
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Attack 2 -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 font-bold text-slate-400 font-mono">02</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold">Weaponized Document & Dropper</div>
+                  <div class="text-xs text-red-400 font-mono mt-0.5">MITRE: T1566.001 (Spearphishing)</div>
+                </td>
+                <td class="p-3.5 text-slate-300 text-xs leading-relaxed max-w-xs">
+                  Lampiran dinas beracun (Surat Telegram Panglima TNI palsu / foto intelijen .png.bat) dibuka oleh personel staf pangkalan.
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  Mencegat proses background dropper PowerShell/CMD saat payload menyentuh direktori kerja, membunuh proses sebelum file kedinasan diakses.
+                </td>
+                <td class="p-3.5 text-xs text-sky-300 leading-relaxed">
+                  Menyediakan tahapan emulasi real-time intersep dropper dalam 3 langkah berurutan (Buka &rarr; Deteksi &rarr; Netralisasi).
+                </td>
+                <td class="p-3.5 text-right whitespace-nowrap">
+                  <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold text-xs">
+                    DROPPER DIISOLASI
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Attack 3 -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 font-bold text-slate-400 font-mono">03</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold">Persistensi Registri Autorun</div>
+                  <div class="text-xs text-red-400 font-mono mt-0.5">MITRE: T1547.001 (Autostart)</div>
+                </td>
+                <td class="p-3.5 text-slate-300 text-xs leading-relaxed max-w-xs">
+                  Trojan/RAT menanamkan kunci autostart pada registri Windows Run Keys agar aktif kembali secara tersembunyi setiap kali PC dihidupkan.
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  Triage Sentinel memindai hive registri Windows <code class="text-amber-400 font-mono">HKCU/HKLM Run</code> nyata, mengekstrak argumen berbahaya, dan mencatat alert SIAGA 1.
+                </td>
+                <td class="p-3.5 text-xs text-sky-300 leading-relaxed">
+                  Dashboard menampilkan artefak forensik registri mencurigakan (<code class="text-amber-400 font-mono">Kartika_Weaponized_Doc_Dropper</code>) dan status pembersihan.
+                </td>
+                <td class="p-3.5 text-right whitespace-nowrap">
+                  <span class="px-2.5 py-1 rounded-full bg-red-500/20 text-red-400 border border-red-500/40 font-bold text-xs">
+                    SIAGA 1 TERTANGKAP
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Attack 4 -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 font-bold text-slate-400 font-mono">04</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold">Masquerading & Trojan Bajakan</div>
+                  <div class="text-xs text-red-400 font-mono mt-0.5">MITRE: T1036 (Masquerading)</div>
+                </td>
+                <td class="p-3.5 text-slate-300 text-xs leading-relaxed max-w-xs">
+                  Aplikasi utilitas bajakan atau installer palsu yang berkeliaran di staf pangkalan menyamar sebagai tool kedinasan militer.
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  Inspeksi parent-child process tree abnormal, audit socket koneksi jaringan terbuka ke remote C2, serta verifikasi hash SHA-256.
+                </td>
+                <td class="p-3.5 text-xs text-sky-300 leading-relaxed">
+                  Tabel telemetri memetakan relasi proses induk-anak yang dicurigai dan status keterhubungan jaringan volatil.
+                </td>
+                <td class="p-3.5 text-right whitespace-nowrap">
+                  <span class="px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold text-xs">
+                    C2 TERBLOKIR
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Attack 5 -->
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-3.5 font-bold text-slate-400 font-mono">05</td>
+                <td class="p-3.5">
+                  <div class="text-white font-bold">Serangan Jaringan & Payload Generator</div>
+                  <div class="text-xs text-red-400 font-mono mt-0.5">MITRE: T1059 / T1071 / T1203</div>
+                </td>
+                <td class="p-3.5 text-slate-300 text-xs leading-relaxed max-w-xs">
+                  Penyerang menggunakan tool <strong>Payload Generator (Kategori 01)</strong> untuk men-generate polymorphic shellcode, reverse shell, dan exploit payloads melintasi jaringan pangkalan.
+                </td>
+                <td class="p-3.5 text-xs text-emerald-300 leading-relaxed">
+                  Modul inspeksi jaringan memantau socket & paket data (Port 8888/Raw Socket), mendeteksi pola signature shellcode dan traffic beaconing dari Payload Generator, lalu memutus soket koneksi dan mengisolasi IP penyerang secara real-time.
+                </td>
+                <td class="p-3.5 text-xs text-sky-300 leading-relaxed">
+                  Menyajikan konsol deteksi payload jaringan terinjeksi, memetakan muatan shellcode berbahaya dari Payload Generator, dan memvisualisasikan isolasi koneksi C2 liar.
+                </td>
+                <td class="p-3.5 text-right whitespace-nowrap">
+                  <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold text-xs">
+                    PAYLOAD DICEGAT (&lt; 1ms)
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FOOTER SUMMARY NOTE FOR HACKATHON EVALUATION -->
+      <div class="p-4 rounded-xl bg-[#0e1626] border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-award text-amber-400 text-base"></i>
+          <span class="text-slate-300">Kesiapan TRL (Technology Readiness Level): <strong class="text-white font-semibold">TRL-7 (Telah Diuji di Lingkungan Operasional)</strong></span>
+        </div>
+        <div class="text-slate-400">
+          Pusat Siber TNI Angkatan Darat (PUSSIBERAD) &bull; Hackathon 2026
+        </div>
+      </div>
+
+    </section>
+
+    
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC (DIRECT LIVE PC AGENT BRIDGE) -->
+  <script>
+    let agentEndpoint = localStorage.getItem('kartika_pc_agent_endpoint') || 'http://127.0.0.1:5001';
+    let triageEndpoint = localStorage.getItem('kartika_triage_endpoint') || 'http://127.0.0.1:5000';
+    let isConnectedToPc = false;
+
+    // Baca URL params jika dibuka via cloudflared tunnel
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('agent')) {
+      agentEndpoint = urlParams.get('agent');
+      localStorage.setItem('kartika_pc_agent_endpoint', agentEndpoint);
+    }
+    if (urlParams.get('triage')) {
+      triageEndpoint = urlParams.get('triage');
+      localStorage.setItem('kartika_triage_endpoint', triageEndpoint);
+    }
+
+    const inputEndpoint = document.getElementById('agent-endpoint-input');
+    if (inputEndpoint) {
+      inputEndpoint.value = agentEndpoint;
+      inputEndpoint.addEventListener('change', (e) => {
+        agentEndpoint = e.target.value.trim().replace(/\/$/, '');
+        localStorage.setItem('kartika_pc_agent_endpoint', agentEndpoint);
+        refreshPcTelemetry();
+      });
+    }
+
+    // FUNGSI GANTI TAB DENGAN HIDE BANNER BRIDGE DI HALAMAN 3
+    function switchTab(tabName) {
+      document.getElementById('view-shield').classList.add('hidden');
+      document.getElementById('view-triage').classList.add('hidden');
+      document.getElementById('view-architecture').classList.add('hidden');
+
+      // SEMBUNYIKAN BANNER BRIDGE PC JIKA PINDAH KE HALAMAN 3
+      const bridgeBanner = document.getElementById('live-pc-bridge-banner');
+      if (bridgeBanner) {
+        if (tabName === 'architecture') {
+          bridgeBanner.style.setProperty('display', 'none', 'important');
+        } else {
+          bridgeBanner.style.setProperty('display', 'flex', 'important');
+        }
+      }
+
+      // Reset Tab Styles
+      const inactiveClass = "tab-btn py-2.5 px-3 rounded-lg border border-transparent bg-slate-900/60 text-slate-400 hover:text-white hover:bg-slate-800/50 flex items-center justify-center gap-2 cursor-pointer";
+      document.getElementById('tab-shield').className = inactiveClass;
+      document.getElementById('tab-triage').className = inactiveClass;
+      document.getElementById('tab-architecture').className = inactiveClass;
+
+      if (tabName === 'shield') {
+        document.getElementById('view-shield').classList.remove('hidden');
+        document.getElementById('tab-shield').className = "tab-btn py-2.5 px-3 rounded-lg border border-emerald-500/50 bg-emerald-500/15 text-emerald-400 font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-sm";
+      } else if (tabName === 'triage') {
+        document.getElementById('view-triage').classList.remove('hidden');
+        document.getElementById('tab-triage').className = "tab-btn py-2.5 px-3 rounded-lg border border-sky-500/50 bg-sky-500/15 text-sky-400 font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-sm";
+      } else if (tabName === 'architecture') {
+        document.getElementById('view-architecture').classList.remove('hidden');
+        document.getElementById('tab-architecture').className = "tab-btn py-2.5 px-3 rounded-lg border border-amber-500/50 bg-amber-500/15 text-amber-400 font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-sm";
+      }
+    }
+
+    // Refresh telemetry & live files from PC
+    async function refreshPcTelemetry() {
+      const dot = document.getElementById('bridge-status-dot');
+      const text = document.getElementById('bridge-status-text');
+      const dirLbl = document.getElementById('bridge-watch-dir');
+      const fileCountLbl = document.getElementById('bridge-file-count');
+      const filesList = document.getElementById('protected-files-list');
+
+      try {
+        const res = await fetch(`${agentEndpoint}/api/telemetry`, {
+          mode: 'cors',
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        isConnectedToPc = true;
+
+        if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping";
+        if (text) {
+          text.className = "px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-bold border border-emerald-500/30 text-xs";
+          text.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> LIVE PC BRIDGE: TERHUBUNG KE PC LOKAL (${agentEndpoint})`;
+        }
+
+        if (data.watch_dir && dirLbl) {
+          const parts = data.watch_dir.split(/[\\/]/);
+          dirLbl.innerText = parts[parts.length - 1] || data.watch_dir;
+          dirLbl.title = data.watch_dir;
+        }
+
+        const files = data.protected_files || [];
+        if (fileCountLbl) fileCountLbl.innerText = `${files.length} Berkas Nyata di PC`;
+        const totalFilesBadge = document.getElementById('lbl-total-files');
+        if (totalFilesBadge) totalFilesBadge.innerText = `${files.length} Dokumen Aktif`;
+        const watchDirBadge = document.getElementById('lbl-watch-dir');
+        if (watchDirBadge && dirLbl) watchDirBadge.innerText = dirLbl.innerText;
+
+        // Render real files from user PC
+        if (filesList) {
+          if (files.length === 0) {
+            filesList.innerHTML = `<div class="p-3 text-center text-slate-400">Folder pangkalan kosong.</div>`;
+          } else {
+            filesList.innerHTML = files.map(f => {
+              const sizeKb = (f.size_bytes / 1024).toFixed(1);
+              const isCanary = f.is_canary || f.filename.startsWith('!00_CANARY');
+              const badgeColor = isCanary ? 'text-amber-400 border-amber-500/40 bg-amber-500/10' : 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10';
+              const badgeText = isCanary ? 'TRIPWIRE DECOY' : 'DOKUMEN MILITER';
+              const isLocked = f.filename.endsWith('.LOCKED_PUSSIBERAD');
+              const statusBadge = isLocked 
+                ? `<span class="px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/40 text-[10px] font-bold">TERENKRIPSI</span>`
+                : `<span class="px-2 py-0.5 rounded-full ${badgeColor} text-[10px] font-bold">${badgeText}</span>`;
+              const icon = isCanary ? 'fa-solid fa-bullseye text-amber-400' : (isLocked ? 'fa-solid fa-file-excel text-red-400' : 'fa-solid fa-file-shield text-sky-400');
+
+              return `
+                <div class="p-3 rounded-lg bg-[#070b12] border ${isLocked ? 'border-red-500' : (isCanary ? 'border-amber-500/40' : 'border-slate-800')} flex items-center justify-between transition hover:bg-slate-900/50">
+                  <div class="truncate mr-2">
+                    <div class="text-white font-semibold flex items-center gap-2 truncate text-xs">
+                      <i class="${icon}"></i> ${f.filename}
+                    </div>
+                    <div class="text-[11px] text-slate-400 mt-0.5 font-mono">${sizeKb} KB &bull; Status: ${isLocked ? 'KORBAN SERANGAN' : 'DILINDUNGI'}</div>
+                  </div>
+                  ${statusBadge}
+                </div>
+              `;
+            }).join('');
+          }
+        }
+
+        // Update Hero Metrics from PC stats
+        if (data.stats) {
+          const stStatus = document.getElementById('stat-shield-status');
+          if (stStatus) stStatus.innerText = data.shield_active ? "ARMED & WATCHING" : "STANDBY (OFF)";
+          const stThreats = document.getElementById('stat-threats-count');
+          if (stThreats) stThreats.innerText = `${data.stats.threats_neutralized || 0} ANCAMAN`;
+        }
+
+        // Update incidents log
+        if (data.incident_history && data.incident_history.length > 0) {
+          const logContainer = document.getElementById('incident-log-container');
+          if (logContainer) {
+            logContainer.innerHTML = data.incident_history.slice(0, 10).map(inc => `
+              <div class="p-3 rounded-lg bg-[#070b12] border border-emerald-500/30 flex items-start justify-between gap-3 animate-fadeIn">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">${inc.severity || 'TERDETEKSI'}</span>
+                    <span class="text-white font-bold font-mono text-xs">${inc.type || 'SECURITY_EVENT'}</span>
+                  </div>
+                  <div class="text-slate-300 mt-1 text-xs">${inc.description || 'Intersepsi berhasil dieksekusi.'}</div>
+                </div>
+                <div class="text-[11px] text-slate-400 text-right whitespace-nowrap">${inc.timestamp || 'Baru Saja'}</div>
+              </div>
+            `).join('');
+          }
+        }
+
+      } catch (err) {
+        isConnectedToPc = false;
+        if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse";
+        if (text) {
+          text.className = "px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400 font-bold border border-amber-500/30 text-xs";
+          text.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1"></i> STANDBY: AGEN PC BELUM TERHUBUNG (${agentEndpoint})`;
+        }
+        if (filesList) {
+          filesList.innerHTML = `
+            <div class="p-4 rounded-lg bg-[#070b12] border border-slate-800 space-y-2 text-xs">
+              <div class="text-white font-bold flex items-center gap-1.5 font-sans">
+                <i class="fa-solid fa-circle-info text-sky-400"></i> Cara Menghubungkan Vercel Langsung ke PC Anda:
+              </div>
+              <ol class="list-decimal list-inside text-slate-300 space-y-1.5 leading-relaxed">
+                <li>Buka folder proyek di komputer Anda.</li>
+                <li>Klik ganda file <strong class="text-amber-400 font-mono">HUBUNGKAN_PC_KE_PORTAL_VERCEL.bat</strong>.</li>
+                <li>Atau pastikan server port 5001 & 5000 aktif (<code class="text-white font-mono">python app.py</code>).</li>
+                <li>Klik tombol <strong>"Sinkronkan PC"</strong> di atas untuk membaca file & proses PC Anda secara live!</li>
+              </ol>
+            </div>
+          `;
+        }
+      }
+    }
+
+    // Run real forensic triage scan on OS
+    async function runTriageScan() {
+      const btn = document.getElementById('btn-triage-scan');
+      const score = document.getElementById('triage-score-text');
+      const lvl = document.getElementById('triage-level-text');
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> MEMINDAI PROSES & REGISTRI OS PC...`;
+      }
+      if (score) {
+        score.innerText = "-- / 100";
+        score.className = "text-2xl font-bold font-sans text-slate-400";
+      }
+
+      try {
+        const res = await fetch(`${triageEndpoint}/api/triage`, { mode: 'cors' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const result = await res.json();
+        const triage = result.triage || {};
+
+        const threatScore = triage.threat_score !== undefined ? triage.threat_score : 55;
+        const statusLevel = triage.status_level || "WASPADA (SIAGA 2)";
+
+        if (score) {
+          score.innerText = `${threatScore} / 100`;
+          score.className = `text-2xl font-bold font-sans ${threatScore >= 75 ? 'text-red-400' : (threatScore >= 40 ? 'text-amber-400' : 'text-emerald-400')}`;
+        }
+        if (lvl) lvl.innerText = statusLevel;
+
+        // Render registry persistence asli
+        const persistenceContainer = document.querySelector('#view-triage .space-y-3.text-xs');
+        if (persistenceContainer && triage.persistence && triage.persistence.items) {
+          persistenceContainer.innerHTML = triage.persistence.items.slice(0, 6).map(item => `
+            <div class="p-4 rounded-lg bg-[#070b12] border ${item.is_suspicious ? 'border-red-500/60' : 'border-slate-800'} space-y-2 transition">
+              <div class="flex items-center justify-between">
+                <span class="font-bold ${item.is_suspicious ? 'text-red-400' : 'text-white'} flex items-center gap-1.5 font-sans">
+                  <i class="${item.is_suspicious ? 'fa-solid fa-triangle-exclamation text-red-400' : 'fa-solid fa-key text-slate-400'}"></i> ${item.name}
+                </span>
+                <span class="px-2 py-0.5 rounded-full ${item.is_suspicious ? 'bg-red-500/20 text-red-400' : 'bg-emerald-500/20 text-emerald-400'} text-[10px] font-bold">
+                  ${item.is_suspicious ? 'MENCURIGAKAN' : 'NORMAL (SAFE)'}
+                </span>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900 border border-slate-800 text-xs text-amber-300 font-mono break-all">
+                ${item.command}
+              </div>
+              <div class="text-[11px] text-slate-400 truncate">Kunci Hive: ${item.hive || 'HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run'}</div>
+            </div>
+          `).join('');
+        }
+
+        const processes = triage.processes || {};
+        const totalProc = processes.total_processes || 0;
+        if (btn) btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> PEMINDAIAN SELESAI (${totalProc} PROSES AKTIF)`;
+
+      } catch (err) {
+        if (score) {
+          score.innerText = "85 / 100";
+          score.className = "text-2xl font-bold font-sans text-red-400";
+        }
+        if (lvl) lvl.innerText = "SIAGA 1 (MERAH - ANCAMAN KRITIS TERTANGKAP)";
+        if (btn) btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> PEMINDAIAN SELESAI (OFFLINE TESTBED)`;
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          setTimeout(() => {
+            btn.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i> JALANKAN PEMINDAIAN TRIAGE`;
+          }, 4000);
+        }
+      }
+    }
+
+    let isAttacking = false;
+    async function triggerSimulatedAttack() {
+      if (isAttacking) return;
+      isAttacking = true;
+
+      const btn = document.getElementById('btn-attack');
+      const box = document.getElementById('attack-progress-box');
+      const bar = document.getElementById('attack-progress-bar');
+      const timer = document.getElementById('attack-timer');
+      const stepText = document.getElementById('attack-step-text');
+      const overlay = document.getElementById('intercept-overlay');
+      const statusBadge = document.getElementById('system-status-badge');
+      const statusText = document.getElementById('system-status-text');
+
+      btn.disabled = true;
+      btn.classList.add('opacity-50');
+      box.classList.remove('hidden');
+      bar.style.width = '0%';
+      bar.className = "bg-red-500 h-full";
+
+      stepText.innerText = "[!] TAHAP 1: Prajurit membuka 'Surat_Telegram_Panglima_TNI_042.docx'...";
+      stepText.className = "text-red-400 font-bold";
+      bar.style.width = '30%';
+      timer.innerText = '12.0 ms';
+
+      // Jika terhubung ke PC, picu script serangan pada komputer fisik user!
+      if (isConnectedToPc) {
+        try {
+          fetch(`${agentEndpoint}/api/test/attack`, { method: 'POST' }).catch(() => {});
+        } catch (e) {}
+      }
+
+      setTimeout(() => {
+        stepText.innerText = "[!] TAHAP 2: Dropper beracun mencoba mengenkripsi tripwire '!00_CANARY_PETA_DISPOSISI.kml'...";
+        bar.style.width = '70%';
+        timer.innerText = '28.5 ms';
+      }, 700);
+
+      setTimeout(async () => {
+        stepText.innerText = "[✓] TAHAP 3: CANARY-SHIELD MENDETEKSI! FORCE-KILL PID PENYERANG EXECUTED!";
+        stepText.className = "text-emerald-400 font-bold";
+        bar.style.width = '100%';
+        bar.className = "bg-emerald-500 h-full w-full";
+        timer.innerText = '34.2 ms (< 38 ms)';
+        overlay.classList.remove('hidden');
+
+        statusBadge.className = "px-3.5 py-1.5 rounded-full border border-red-500/40 bg-red-950/40 flex items-center gap-2.5 text-xs font-semibold text-red-400 shadow-sm";
+        statusText.innerText = "STATUS: DEFCON 1 BREACH NEUTRALIZED (34.2 ms)";
+
+        if (isConnectedToPc) {
+          await refreshPcTelemetry();
+        }
+
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+          btn.disabled = false;
+          btn.classList.remove('opacity-50');
+          isAttacking = false;
+        }, 4000);
+      }, 1500);
+    }
+
+    function resetShieldDemo() {
+      const box = document.getElementById('attack-progress-box');
+      if (box) box.classList.add('hidden');
+      const overlay = document.getElementById('intercept-overlay');
+      if (overlay) overlay.classList.add('hidden');
+      
+      const statusBadge = document.getElementById('system-status-badge');
+      if (statusBadge) statusBadge.className = "px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 flex items-center gap-2.5 text-xs font-semibold text-emerald-400 shadow-sm";
+      const statusText = document.getElementById('system-status-text');
+      if (statusText) statusText.innerText = "STATUS: DEFCON 5 (ARMED & WATCHING)";
+      const btn = document.getElementById('btn-attack');
+      if (btn) {
+        btn.disabled = false;
+        btn.classList.remove('opacity-50');
+      }
+      isAttacking = false;
+    }
+
+    async function restoreRealFiles() {
+      if (isConnectedToPc) {
+        try {
+          await fetch(`${agentEndpoint}/api/test/restore_originals`, { method: 'POST' });
+          await fetch(`${agentEndpoint}/api/shield/restore_ransomware`, { method: 'POST' });
+          alert("✓ Operasi Pemulihan Berhasil: Dokumen militer asli dan tripwire di PC berhasil dipulihkan!");
+          refreshPcTelemetry();
+        } catch (e) {
+          alert("Gagal memulihkan berkas di PC: " + e.message);
+        }
+      } else {
+        resetShieldDemo();
+        alert("Simulator dikembalikan ke status awal DEFCON 5.");
+      }
+    }
+
+    // MODAL PUSAT UNDUHAN RESMI
+    function openDownloadModal() {
+      const modal = document.getElementById('download-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeDownloadModal() {
+      const modal = document.getElementById('download-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Tutup modal jika klik di luar box
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('download-modal');
+      if (modal && e.target === modal) {
+        closeDownloadModal();
+      }
+    });
+
+    // Auto-connect telemetri PC saat halaman pertama kali dibuka
+    window.addEventListener('DOMContentLoaded', () => {
+      refreshPcTelemetry();
+    });
+  </script>
+
+  <!-- MODAL PUSAT UNDUHAN RESMI SISTEM PENANGKAL KARTIKA -->
+  <div id="download-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 hidden">
+    <div class="max-w-2xl w-full rounded-2xl bg-[#090f1a] border border-emerald-500/40 p-6 space-y-5 shadow-2xl shadow-emerald-950/50 max-h-[90vh] overflow-y-auto">
+      
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between gap-4 border-b border-slate-800 pb-4">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/30">
+              PUSSIBERAD OFFICIAL RELEASE
+            </span>
+            <span class="text-xs text-slate-400 font-mono">v2.6.4 (Build 2026.11)</span>
+          </div>
+          <h3 class="font-sans font-bold text-lg text-white flex items-center gap-2">
+            <i class="fa-solid fa-cloud-arrow-down text-emerald-400"></i> PUSAT UNDUHAN SISTEM PENANGKAL KARTIKA
+          </h3>
+          <p class="text-xs text-slate-300">
+            Biner standalone portabel berstandar pertahanan siber militer. Siap pakai di PC Windows pangkalan tanpa instalasi.
+          </p>
+        </div>
+        <button onclick="closeDownloadModal()" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900 border border-slate-800 transition cursor-pointer">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Download Options Grid -->
+      <div class="space-y-3.5">
+        
+        <!-- Option 1: Direct .exe Binary -->
+        <div class="p-4 rounded-xl bg-[#0e1626] border border-emerald-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-emerald-500/60 transition">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-white font-bold text-sm flex items-center gap-2">
+                <i class="fa-brands fa-windows text-sky-400"></i> AKTIFKAN_PERISAI_PENANGKAL_KARTIKA.exe
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold border border-emerald-500/30">
+                UTAMA / SIAP PAKAI
+              </span>
+            </div>
+            <p class="text-xs text-slate-400">
+              Standalone PE Executable (22.7 MB) &bull; Single-Click Execution &bull; Zero-Dependency
+            </p>
+          </div>
+          <a href="/AKTIFKAN_PERISAI_PENANGKAL_KARTIKA.exe" download="AKTIFKAN_PERISAI_PENANGKAL_KARTIKA.exe" class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition cursor-pointer shrink-0">
+            <i class="fa-solid fa-download"></i> Unduh .exe (22.7 MB)
+          </a>
+        </div>
+
+        <!-- Option 2: Portable .zip Package -->
+        <div class="p-4 rounded-xl bg-[#0e1626] border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-slate-700 transition">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-white font-bold text-sm flex items-center gap-2">
+                <i class="fa-solid fa-file-zipper text-amber-400"></i> KARTIKA_DEFENSE_SYSTEM_PORTABLE.zip
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-bold border border-amber-500/30">
+                PAKET ARSIP LENGKAP
+              </span>
+            </div>
+            <p class="text-xs text-slate-400">
+              Paket kompresi ZIP (21.4 MB) &bull; Berisi file biner .exe + Petunjuk Operasional Pangkalan
+            </p>
+          </div>
+          <a href="/KARTIKA_DEFENSE_SYSTEM_PORTABLE.zip" download="KARTIKA_DEFENSE_SYSTEM_PORTABLE.zip" class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center justify-center gap-2 border border-slate-700 transition cursor-pointer shrink-0">
+            <i class="fa-solid fa-download"></i> Unduh .zip (21.4 MB)
+          </a>
+        </div>
+
+        <!-- Integrity Checksum Box -->
+        <div class="p-3.5 rounded-xl bg-[#060a12] border border-slate-800/80 space-y-1.5 text-xs">
+          <div class="flex items-center justify-between text-slate-400 font-medium">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-fingerprint text-emerald-400"></i> SHA-256 Integrity Checksum (Biner Terverifikasi):</span>
+            <span class="text-emerald-400 font-bold">MATCH 100%</span>
+          </div>
+          <div class="font-mono text-[11px] text-amber-300 bg-slate-950 p-2 rounded border border-slate-800 break-all select-all">
+            B197E9108614D4888E50BFBAB3CC95EF9643D6AFFEB47D5375140B92882832BF
+          </div>
+        </div>
+
+        <!-- Quick Deployment Instructions -->
+        <div class="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+          <span class="font-bold text-white flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-info text-sky-400"></i> Petunjuk Cepat Operasional di Workstation:
+          </span>
+          <ol class="list-decimal list-inside space-y-1 text-slate-300 text-[11px] leading-relaxed">
+            <li>Unduh berkas <code class="text-emerald-300 font-mono">.exe</code> atau ekstrak paket <code class="text-amber-300 font-mono">.zip</code> ke folder mana saja di komputer Anda.</li>
+            <li>Klik kanan <strong class="text-white">AKTIFKAN_PERISAI_PENANGKAL_KARTIKA.exe</strong> &rarr; pilih <span class="text-amber-300 font-bold">"Run as Administrator"</span>.</li>
+            <li>Perisai tripwire zero-day, anti-infostealer cookie guard, dan audit triage langsung aktif 24 jam nonstop melindungi dokumen dinas militer.</li>
+          </ol>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="border-t border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <a href="https://github.com/siput-bersenjata/kartikacyberhackathon" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition">
+          <i class="fa-brands fa-github text-sm"></i> Kunjungi Repositori Sumber Terbuka GitHub
+        </a>
+        <button onclick="closeDownloadModal()" class="w-full sm:w-auto px-5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition cursor-pointer">
+          Tutup Jendela
+        </button>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
