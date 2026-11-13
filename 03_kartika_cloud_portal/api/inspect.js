@@ -65,7 +65,7 @@ module.exports = async (req, res) => {
         status: 'success',
         mode: 'PRESET_SAMPLE',
         metadata: {
-          filename: 'Installer_Aplikasi_Bajakan.exe (Pegasus Setup)',
+          filename: 'Installer_Aplikasi_Bajakan.exe (Acrobat Crack Setup)',
           filesize_bytes: 15203932,
           filesize_mb: 14.5,
           sha256: 'e62c154d9b2d17eb8199180191bcb378e0c58d6556d75e19dc1f23afadebecef',
@@ -279,3 +279,4 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 };
+
