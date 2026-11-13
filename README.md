@@ -15,6 +15,32 @@ Sistem ini beroperasi secara **100% Air-Gapped Ready (Zero-Dependency)** langsun
 
 ---
 
+## 🚀 Keunggulan Utama Sistem Pertahanan Kartika
+
+Mengapa platform Kartika ini unggul dan relevan untuk doktrin pertahanan siber TNI AD?
+
+### 🌐 1. Distribusi Cepat & Aksesibilitas Cloud Vercel
+* **Unduh Sistem Penangkal Up-to-Date Kapan Saja:** Prajurit atau staf markas dapat mengunduh paket executable sistem penangkal ter-update langsung dari website Vercel, memastikan mesin baru terlindungi tanpa perlu menunggu distribusi fisik.
+* **Tidak Perlu Flashdisk untuk Memulai:** Pengamanan pertama dapat dilakukan seketika dengan mengunduh paket mandiri melalui browser dinas di mana saja.
+* **Akses Evaluasi 24/7 Global Multi-Device:** Komandan satuan, juri, maupun staf pimpinan dapat memantau status kesiagaan sensor tripwire dari ponsel Android, iPhone, iPad, laptop, maupun PC kantor dengan tampilan responsif modern.
+
+### ⚡ 2. Kecepatan Intersepsi Sub-Milidetik (< 38.4 ms)
+* **Active Deception (Canary Tripwire):** Menempatkan berkas umpan bertanda khusus pada direktori dokumen taktis militer dan basis data peramban web.
+* **Analisis Shannon Entropy:** Mendeteksi anomali lonjakan entropi (> 7.5) pada proses yang mencoba mengenkripsi data secara liar.
+* **Force-Kill Seketika:** Menembak mati (*SIGKILL*) Process ID (PID) penyerang dalam waktu kurang dari 38.4 milidetik sebelum dokumen dinas asli tersentuh.
+* **Instant Rollback (Zero Data Loss):** Memulihkan file asli yang sempat disentuh ke kondisi normal seketika.
+
+### 🍪 3. Proteksi Khusus Kredensial & Session Cookie Browser
+* **Mencegah Pembajakan Sesi Dinas (Session Hijacking):** Melindungi berkas kredensial browser dari malware jenis infostealer yang mencoba mencuri token login portal internal markas tanpa perlu membobol kata sandi atau 2FA.
+
+### 🏭 4. Deep Packet Inspection IT/OT SCADA
+* **Inspeksi Biner Modbus TCP:** Mengawasi lalu lintas jaringan pengendali industri pangkalan (PLTA, genset darurat, sistem kendali radar) dan menginjeksi paket TCP Reset seketika saat terdeteksi perintah sabotase liar.
+
+### 💾 5. Kemandirian Penuh Tanpa Ketergantungan (100% Air-Gapped Ready)
+* **Zero-Dependency Portable:** Seluruh modul dikompilasi menjadi biner `.exe` mandiri. Beroperasi sempurna di pos perbatasan, daerah operasi terdepan, atau kapal perang KRI tanpa butuh instalasi Python maupun koneksi internet.
+
+---
+
 ## 🏛️ Arsitektur Tiga Pilar Pertahanan
 
 ```
@@ -36,23 +62,25 @@ Sistem ini beroperasi secara **100% Air-Gapped Ready (Zero-Dependency)** langsun
 └───────────────────┘        └───────────────────┘        └───────────────────┘
 ```
 
-### 1. `01_triage_sentinel` (Forensic Triage & SIAGA Scoring)
-* **Volatile Memory Radar:** Mengumpulkan dan memindai artefak sistem volatil secara real-time tanpa mengubah status barang bukti digital.
-* **Registry Persistence Hunter:** Mengendus dan menetralisir manipulasi autorun startup (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`).
-* **SIAGA Scoring Engine:** Mengkalkulasi skor ancaman secara otomatis (SIAGA 1 / 2 / 3 / 4) dan memetakannya ke taktik **MITRE ATT&CK** (`T1566`, `T1547.001`, `T1059`, `T1486`).
-* **Berita Acara Digital (HTML DFIR):** Menerbitkan laporan olah TKP siber berstandar hukum lengkap dengan hash SHA-256 hanya dalam 1 klik.
+---
 
-### 2. `02_itot_pangkalan_shield` (Active Interceptor & Canary Decoy Vault)
-* **Canary Tripwire Engine:** Menanam umpan khusus (*decoy*) pada 3 titik paling rawan: Dokumen Word/Excel militer, berkas taktis KML, dan Session Cookie Browser.
-* **Shannon Entropy Analysis:** Mendeteksi anomali lonjakan entropi (> 7.5) pada proses yang mencoba mengenkripsi file secara liar.
-* **Sub-Millisecond Interceptor (< 38.4 ms):** Melakukan eksekusi *force-kill* (SIGKILL) seketika terhadap Process ID (PID) penyerang dan memulihkan file asli (*Zero-Data Loss Rollback*).
-* **SCADA Deep Packet Inspection:** Menginspeksi paket biner protokol industri Modbus TCP untuk mencegah manipulasi coil/register pada kontrol genset dan radar pangkalan.
-* **Military Crypto-Vault:** Enkripsi berstandar militer AES-256-GCM berdaulat untuk perlindungan data statis.
+## ❓ Tanya Jawab Kritis Dewan Juri PUSSIBERAD (*FAQ & Killer Answers*)
 
-### 3. `03_kartika_cloud_portal` (Cloud Telemetry & Defense Portal)
-* **Portal Publik 24/7 di Vercel:** Memfasilitasi pimpinan satuan dan dewan juri untuk memantau status kesiagaan sensor tripwire dari ponsel, tablet, maupun PC kantor.
-* **Aksesibilitas Unduhan Mandiri:** Menyediakan akses unduh langsung paket sistem penangkal ter-update tanpa hambatan teknis.
-* **Tautan Resmi:** `https://kartika-cyber-defense-portal.vercel.app`
+Berikut adalah ringkasan argumentasi teknis untuk menjawab pertanyaan kritis saat sesi pitching/evaluasi:
+
+> ### 1. "Komputer dinas kan sudah ada Windows Defender / Antivirus biasa. Mengapa masih butuh Kartika?"
+> **Jawaban:** Antivirus konvensional bekerja secara **REAKTIF berbasis SIGNATURE (Database ancaman lama)**. Jika penyerang memakai ransomware zero-day baru atau skrip custom yang belum terdaftar di database dunia, antivirus biasa akan **LOLOS (False Negative)**. Sebaliknya, **Kartika Canary-Shield** bekerja secara **PROAKTIF berbasis PERILAKU (Active Deception)**. Sistem tidak peduli malware sudah dikenal atau baru dibuat 1 detik yang lalu; begitu ada proses ilegal memodifikasi file umpan kedinasan kami, proses langsung di-*force kill* dalam 38.4 milidetik sebelum berkas dinas asli tersentuh.
+
+> ### 2. "Bagaimana jika komputer pos perbatasan sama sekali tanpa internet (Air-Gapped)?"
+> **Jawaban:** Platform Kartika **100% AIR-GAPPED READY**. Seluruh modul telah dikompilasi ke biner portabel mandiri (`.exe`). Cukup tancapkan USB Flashdisk, klik satu kali, dan proteksi langsung aktif melindungi workstation tanpa perlu internet dan tanpa dependensi eksternal.
+
+> ### 3. "Jika penyerang menanam persistensi di Windows Registry Startup, bagaimana sistem mengatasinya?"
+> **Jawaban:** Modul **Triage Sentinel** langsung memindai memori volatil dan mengaudit Run Key Registry (`HKCU\...\CurrentVersion\Run`). Sistem otomatis menandainya dengan status **SIAGA 1 (MERAH)**, memetakannya ke taktik **MITRE ATT&CK T1547.001**, dan menyediakan tombol **'Tangkis Total Siber'** untuk menghapus autorun serta menerbitkan Berita Acara Forensik digital lengkap berstandar hukum.
+
+> ### 4. "Mengapa ada 2 varian: Versi Web Vercel dan Versi Flashdisk?"
+> **Jawaban:** Keduanya saling melengkapi: **Versi Flashdisk** untuk operasional taktis nyata di lingkungan tertutup (*air-gapped*) yang memanggil Win32 API native tingkat rendah; sedangkan **Versi Vercel Cloud** untuk kemudahan pimpinan dan dewan juri memantau telemetri pertahanan 24/7 dari perangkat manapun serta sarana mengunduh paket penangkal ter-update.
+
+> 📖 *Untuk panduan tanya-jawab teknis selengkapnya, baca dokumentasi lengkap di: [PANDUAN_PRESENTASI_DAN_JAWABAN_JURI.md](PANDUAN_PRESENTASI_DAN_JAWABAN_JURI.md).*
 
 ---
 
@@ -90,7 +118,8 @@ Sistem ini beroperasi secara **100% Air-Gapped Ready (Zero-Dependency)** langsun
 ├── CEK_DAN_PULIHKAN_SHADOW_COPY_VSS.bat     # Utilitas Pemulihan Berkas Windows VSS
 ├── PETUNJUK_PENGGUNAAN_FLASHDISK.txt        # Panduan Operasional Lapangan USB
 ├── DRAF_PENGAJUAN_IDE_KARYA_HACKATHON.txt   # Draf Submisi & Deklarasi Etika
-├── PANDUAN_PRESENTASI_DAN_JAWABAN_JURI.txt  # Panduan Pitching & Q&A Dewan Juri
+├── PANDUAN_PRESENTASI_DAN_JAWABAN_JURI.md   # Panduan Pitching & Q&A Dewan Juri (Markdown)
+├── PANDUAN_PRESENTASI_DAN_JAWABAN_JURI.txt  # Panduan Pitching & Q&A Dewan Juri (Teks)
 ├── PAPARAN_KARTIKA_CYBER_HACKATHON_2026.pptx # Slide Presentasi Widescreen 16:9
 └── README.md                                # Dokumentasi Utama Repositori
 ```
@@ -127,6 +156,7 @@ Sistem akan otomatis:
 | **Integritas Dokumen** | Berkas sering terlanjur terenkripsi sebagian | **Zero Data Loss (Instant Rollback otomatis)** |
 | **Proteksi Kredensial** | Tidak ada sensor tripwire pada cookie | **Tripwire khusus berkas Cookie Browser aktif 24/7** |
 | **Proteksi Industri SCADA** | Terpisah (memerlukan hardware appliances mahal) | **Terintegrasi langsung (Deep Packet Inspection Modbus)** |
+| **Distribusi Penangkal** | Harus install software besar atau driver berat | **Unduh langsung dari Vercel atau pakai Flashdisk** |
 | **Kedaulatan Teknologi** | Berlisensi komersial dari vendor asing | **100% Karya Mandiri Bangsa Indonesia** |
 
 ---
